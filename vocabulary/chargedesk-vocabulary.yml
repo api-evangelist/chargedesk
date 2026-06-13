@@ -1,0 +1,221 @@
+vocabulary:
+  name: ChargeDesk API Vocabulary
+  description: Terms and concepts used in the ChargeDesk REST API for payment management
+  version: v1
+  url: https://chargedesk.com/api-docs
+  terms:
+
+    # Core Resources
+    - term: charge
+      definition: >
+        A payment transaction record representing a single billing event, whether
+        a one-time payment, a refund, an invoice, or a subscription charge.
+      related:
+        - amount
+        - currency
+        - status
+        - transaction_id
+
+    - term: customer
+      definition: >
+        A billing contact record linking a person or organization to their payment
+        history across one or more payment gateways.
+      related:
+        - customer_id
+        - delinquent
+        - card_on_file
+
+    - term: subscription
+      definition: >
+        A recurring billing agreement that automatically charges a customer at
+        a defined interval (daily, weekly, monthly, or yearly).
+      related:
+        - interval
+        - billing_cycles_total
+        - trial_period_days
+
+    - term: product
+      definition: >
+        A billable item or pricing plan that can be associated with charges or
+        subscriptions. Products define recurring billing parameters.
+      related:
+        - interval
+        - amount
+        - chargeable
+
+    - term: webhook
+      definition: >
+        A configured HTTP callback endpoint that receives real-time notifications
+        when charge or subscription events occur in ChargeDesk.
+      related:
+        - events
+        - url
+
+    # Payment Concepts
+    - term: gateway
+      definition: >
+        A payment processor or platform (e.g., Stripe, Braintree, PayPal,
+        Authorize.Net) through which ChargeDesk processes live transactions.
+
+    - term: refund
+      definition: >
+        A full or partial return of funds to the customer for a previously
+        completed charge.
+      related:
+        - amount_refunded
+        - log_reason
+
+    - term: capture
+      definition: >
+        The action of finalizing an authorized (pre-authorized) charge to collect
+        the funds from the customer.
+
+    - term: authorization
+      definition: >
+        A hold placed on a customer's payment method to verify funds availability
+        before actually capturing (collecting) the payment.
+
+    - term: pay_link
+      definition: >
+        A unique URL generated for a payment request (invoice) that the customer
+        can use to complete payment via a hosted checkout page.
+
+    # Charge Status Values
+    - term: pending
+      definition: A charge that has been created but not yet processed or confirmed.
+      context: charge.status
+
+    - term: paid
+      definition: A charge that has been successfully processed and funds collected.
+      context: charge.status
+
+    - term: authorized
+      definition: A charge where funds have been reserved but not yet captured.
+      context: charge.status
+
+    - term: refunded
+      definition: A charge where the full amount has been returned to the customer.
+      context: charge.status
+
+    - term: partially refunded
+      definition: A charge where only a portion of the amount has been refunded.
+      context: charge.status
+
+    - term: failed
+      definition: A charge that could not be processed due to a payment error.
+      context: charge.status
+
+    - term: void
+      definition: A charge or payment request that has been cancelled before completion.
+      context: charge.status
+
+    - term: invoiced
+      definition: A charge represented as an invoice awaiting customer payment.
+      context: charge.status
+
+    - term: disputed
+      definition: A charge that has been contested by the customer (chargeback).
+      context: charge.status
+
+    # Subscription Status Values
+    - term: trialing
+      definition: A subscription in its free trial period before billing begins.
+      context: subscription.status
+
+    - term: active
+      definition: A subscription that is current and billing normally.
+      context: subscription.status
+
+    - term: past_due
+      definition: A subscription where a payment attempt has failed and is overdue.
+      context: subscription.status
+
+    - term: canceled
+      definition: A subscription that has been terminated.
+      context: subscription.status
+
+    - term: pending_cancel
+      definition: A subscription scheduled for cancellation at period end.
+      context: subscription.status
+
+    # Field Terms
+    - term: amount
+      definition: >
+        A monetary value expressed as a decimal number in the specified currency.
+        ChargeDesk accepts 3-letter ISO 4217 currency codes.
+
+    - term: currency
+      definition: >
+        A 3-letter ISO 4217 currency code (e.g., USD, EUR, GBP) indicating the
+        denomination of monetary amounts.
+
+    - term: customer_id
+      definition: >
+        The identifier for a customer as defined in your own system or by the
+        payment gateway. Used to link billing records to your customer database.
+
+    - term: transaction_id
+      definition: >
+        The identifier assigned to a transaction by the payment gateway
+        (e.g., the Stripe charge ID or PayPal transaction ID).
+
+    - term: last_4_digits
+      definition: >
+        The last four digits of the payment card used for a charge, used for
+        identification without exposing full card details.
+
+    - term: metadata
+      definition: >
+        Arbitrary key-value pairs that can be attached to charges, customers, or
+        subscriptions to store custom application data.
+
+    - term: interval
+      definition: >
+        The billing frequency for subscriptions: day, week, month, or year.
+
+    - term: interval_count
+      definition: >
+        The number of intervals between each subscription billing cycle.
+        An interval of 'month' with interval_count of 3 bills every quarter.
+
+    - term: billing_cycles_total
+      definition: >
+        The maximum number of times a subscription will bill. A value of 0
+        indicates unlimited billing cycles.
+
+    - term: trial_period_days
+      definition: >
+        The number of days a subscription trial lasts before regular billing begins.
+
+    - term: delinquent
+      definition: >
+        A flag indicating a customer has one or more failed or overdue payments.
+
+    - term: card_on_file
+      definition: >
+        A flag indicating the customer has a payment card saved in the gateway
+        for future charges.
+
+    - term: duplicate
+      definition: >
+        A parameter that controls behavior when a record with the same ID already
+        exists. Setting to 'update' will update the existing record instead of
+        returning an error.
+
+    - term: log_reason
+      definition: >
+        An optional text field for recording the reason for actions such as
+        refunds or subscription cancellations, for audit trail purposes.
+
+    # Helpdesk Integration Terms
+    - term: helpdesk_integration
+      definition: >
+        ChargeDesk's native integration with helpdesk platforms (Zendesk,
+        Freshdesk, Intercom, HubSpot, Help Scout, Front) that enables support
+        agents to perform billing operations within the helpdesk interface.
+
+    # Authentication
+    - term: secret_key
+      definition: >
+        The API authentication credential for ChargeDesk. Used as the username
+        in HTTP Basic Authentication with an empty password.

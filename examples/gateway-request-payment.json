@@ -1,0 +1,34 @@
+{
+  "title": "Gateway - Request a Payment",
+  "description": "Example request to send a payment request (invoice) via ChargeDesk",
+  "request": {
+    "method": "POST",
+    "url": "https://api.chargedesk.com/v1/gateway/products/charge",
+    "headers": {
+      "Authorization": "Basic YOUR_SECRET_KEY:",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "using": "invoice",
+      "contact": "client@example.com",
+      "lines[]": [
+        "Consulting Services - 10 hours @ $150/hr",
+        "Travel expenses"
+      ],
+      "link_only": "false"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ch_inv_abc123",
+      "object": "charge",
+      "status": "invoiced",
+      "pay_link": "https://pay.chargedesk.com/p/abc123xyz",
+      "customer": {
+        "email": "client@example.com"
+      },
+      "occurred": "2026-06-13T00:00:00Z"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Create a Charge",
+  "description": "Example request to create a charge record in ChargeDesk",
+  "request": {
+    "method": "POST",
+    "url": "https://api.chargedesk.com/v1/charges",
+    "headers": {
+      "Authorization": "Basic YOUR_SECRET_KEY:",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "amount": "49.99",
+      "currency": "USD",
+      "customer[id]": "cus_abc123",
+      "description": "Monthly subscription payment",
+      "transaction_id": "txn_stripe_abc123",
+      "status": "paid",
+      "metadata[plan]": "professional",
+      "metadata[source]": "web"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ch_chargedesk_xyz789",
+      "object": "charge",
+      "status": "paid",
+      "amount": 49.99,
+      "currency": "USD",
+      "description": "Monthly subscription payment",
+      "transaction_id": "txn_stripe_abc123",
+      "customer": {
+        "id": "cus_abc123",
+        "email": "user@example.com",
+        "name": "Jane Smith"
+      },
+      "metadata": {
+        "plan": "professional",
+        "source": "web"
+      },
+      "occurred": "2026-06-13T00:00:00Z"
+    }
+  }
+}

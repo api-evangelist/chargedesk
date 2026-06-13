@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.chargedesk.com/v1/schema/product",
+  "title": "Product",
+  "description": "A product or pricing plan in ChargeDesk",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier assigned by ChargeDesk"
+    },
+    "object": {
+      "type": "string",
+      "const": "product"
+    },
+    "product_id": {
+      "type": "string",
+      "description": "Product identifier (from your system or gateway)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Product URL"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Product price amount"
+    },
+    "currency": {
+      "type": "string",
+      "description": "3-letter ISO currency code",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "interval": {
+      "type": "string",
+      "description": "Billing interval for recurring products",
+      "enum": ["day", "week", "month", "year"]
+    },
+    "trial_period_days": {
+      "type": "integer",
+      "description": "Number of trial days",
+      "minimum": 0
+    },
+    "billing_cycles_total": {
+      "type": "integer",
+      "description": "Total number of billing cycles (0 = unlimited)",
+      "minimum": 0
+    },
+    "setup_amount": {
+      "type": "number",
+      "description": "One-time setup fee amount",
+      "minimum": 0
+    },
+    "chargeable": {
+      "type": "boolean",
+      "description": "Whether the product can be charged immediately"
+    }
+  },
+  "required": ["product_id"]
+}

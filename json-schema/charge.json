@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.chargedesk.com/v1/schema/charge",
+  "title": "Charge",
+  "description": "A payment charge record in ChargeDesk",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique charge identifier"
+    },
+    "object": {
+      "type": "string",
+      "const": "charge"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the charge",
+      "enum": [
+        "pending",
+        "paid",
+        "partially refunded",
+        "refunded",
+        "failed",
+        "authorized",
+        "void",
+        "invoiced",
+        "invoice canceled",
+        "unpaid",
+        "past due",
+        "subscription pending",
+        "disputed",
+        "trial",
+        "credit",
+        "uncollectible",
+        "open",
+        "draft",
+        "unclaimed"
+      ]
+    },
+    "amount": {
+      "type": "number",
+      "description": "Charge amount in the specified currency"
+    },
+    "currency": {
+      "type": "string",
+      "description": "3-letter ISO 4217 currency code",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "amount_refunded": {
+      "type": "number",
+      "description": "Total amount that has been refunded",
+      "minimum": 0
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the charge"
+    },
+    "transaction_id": {
+      "type": "string",
+      "description": "Transaction ID from the payment gateway"
+    },
+    "last_4_digits": {
+      "type": "string",
+      "description": "Last 4 digits of the payment card",
+      "pattern": "^[0-9]{4}$"
+    },
+    "customer": {
+      "type": "object",
+      "description": "Customer associated with this charge",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" }
+      }
+    },
+    "product": {
+      "type": "object",
+      "description": "Product associated with this charge",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "subscription": {
+      "type": "object",
+      "description": "Subscription this charge belongs to",
+      "properties": {
+        "id": { "type": "string" }
+      }
+    },
+    "lines": {
+      "type": "array",
+      "description": "Line items included in the charge",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "amount": { "type": "number" },
+          "quantity": { "type": "integer", "minimum": 1 },
+          "currency": { "type": "string" }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Arbitrary key-value metadata",
+      "additionalProperties": { "type": "string" }
+    },
+    "occurred": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the charge occurred"
+    },
+    "pay_link": {
+      "type": "string",
+      "format": "uri",
+      "description": "Payment link URL for payment requests"
+    }
+  },
+  "required": ["amount", "currency"]
+}

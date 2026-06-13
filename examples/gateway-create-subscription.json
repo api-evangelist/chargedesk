@@ -1,0 +1,42 @@
+{
+  "title": "Gateway - Create a Subscription",
+  "description": "Example request to create a recurring subscription via the ChargeDesk payment gateway",
+  "request": {
+    "method": "POST",
+    "url": "https://api.chargedesk.com/v1/gateway/products/charge",
+    "headers": {
+      "Authorization": "Basic YOUR_SECRET_KEY:",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "using": "card",
+      "customer[id]": "cus_abc123",
+      "amount": "29.99",
+      "currency": "USD",
+      "description": "Professional plan monthly subscription",
+      "product[interval]": "month",
+      "product[interval_count]": "1",
+      "product[trial_period_days]": "14"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ch_sub_abc123",
+      "object": "charge",
+      "status": "trialing",
+      "amount": 29.99,
+      "currency": "USD",
+      "description": "Professional plan monthly subscription",
+      "customer": {
+        "id": "cus_abc123",
+        "email": "user@example.com",
+        "name": "Jane Smith"
+      },
+      "subscription": {
+        "id": "sub_xyz789"
+      },
+      "occurred": "2026-06-13T00:00:00Z"
+    }
+  }
+}

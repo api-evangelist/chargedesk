@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.chargedesk.com/v1/schema/subscription",
+  "title": "Subscription",
+  "description": "A recurring subscription record in ChargeDesk",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier assigned by ChargeDesk"
+    },
+    "object": {
+      "type": "string",
+      "const": "subscription"
+    },
+    "subscription_id": {
+      "type": "string",
+      "description": "Subscription identifier (from your system or gateway)"
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Associated customer identifier"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current subscription status",
+      "enum": [
+        "requested",
+        "pending",
+        "new",
+        "trialing",
+        "active",
+        "past_due",
+        "canceled",
+        "unpaid",
+        "suspended",
+        "pending_cancel"
+      ]
+    },
+    "amount": {
+      "type": "number",
+      "description": "Recurring billing amount"
+    },
+    "currency": {
+      "type": "string",
+      "description": "3-letter ISO currency code",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "interval": {
+      "type": "string",
+      "description": "Billing interval",
+      "enum": ["day", "week", "month", "year"]
+    },
+    "interval_count": {
+      "type": "integer",
+      "description": "Number of intervals between billings",
+      "minimum": 1
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "Quantity of the subscribed product",
+      "minimum": 1
+    },
+    "trial_start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the trial period started"
+    },
+    "trial_end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the trial period ends"
+    },
+    "billing_cycles_total": {
+      "type": "integer",
+      "description": "Total number of billing cycles",
+      "minimum": 0
+    },
+    "billing_cycles_current": {
+      "type": "integer",
+      "description": "Current billing cycle count",
+      "minimum": 0
+    },
+    "items": {
+      "type": "array",
+      "description": "Subscription line items",
+      "items": {
+        "type": "object"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Arbitrary key-value metadata",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["subscription_id"]
+}

@@ -1,0 +1,227 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "chargedesk": "https://chargedesk.com/vocab/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Charge": {
+      "@id": "chargedesk:Charge",
+      "@type": "@id"
+    },
+    "Customer": {
+      "@id": "chargedesk:Customer",
+      "@type": "@id"
+    },
+    "Subscription": {
+      "@id": "chargedesk:Subscription",
+      "@type": "@id"
+    },
+    "Product": {
+      "@id": "chargedesk:Product",
+      "@type": "@id"
+    },
+    "Webhook": {
+      "@id": "chargedesk:Webhook",
+      "@type": "@id"
+    },
+
+    "id": "@id",
+    "object": "@type",
+
+    "amount": {
+      "@id": "schema:price",
+      "@type": "xsd:decimal"
+    },
+    "currency": {
+      "@id": "schema:priceCurrency",
+      "@type": "xsd:string"
+    },
+    "amount_refunded": {
+      "@id": "chargedesk:amountRefunded",
+      "@type": "xsd:decimal"
+    },
+    "status": {
+      "@id": "schema:orderStatus",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "transaction_id": {
+      "@id": "chargedesk:transactionId",
+      "@type": "xsd:string"
+    },
+    "last_4_digits": {
+      "@id": "chargedesk:lastFourDigits",
+      "@type": "xsd:string"
+    },
+    "pay_link": {
+      "@id": "chargedesk:payLink",
+      "@type": "@id"
+    },
+    "occurred": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "metadata": {
+      "@id": "chargedesk:metadata",
+      "@type": "@json"
+    },
+    "lines": {
+      "@id": "chargedesk:lineItems",
+      "@container": "@list"
+    },
+
+    "customer_id": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "username": {
+      "@id": "schema:alternateName",
+      "@type": "xsd:string"
+    },
+    "customer_company": {
+      "@id": "schema:legalName",
+      "@type": "xsd:string"
+    },
+    "website": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "country": {
+      "@id": "schema:addressCountry",
+      "@type": "xsd:string"
+    },
+    "delinquent": {
+      "@id": "chargedesk:delinquent",
+      "@type": "xsd:boolean"
+    },
+    "card_on_file": {
+      "@id": "chargedesk:cardOnFile",
+      "@type": "xsd:boolean"
+    },
+    "tax_number": {
+      "@id": "schema:taxID",
+      "@type": "xsd:string"
+    },
+    "billing_address": {
+      "@id": "schema:address",
+      "@type": "schema:PostalAddress"
+    },
+    "invoice_details": {
+      "@id": "chargedesk:invoiceDetails",
+      "@type": "xsd:string"
+    },
+
+    "subscription_id": {
+      "@id": "chargedesk:subscriptionId",
+      "@type": "xsd:string"
+    },
+    "interval": {
+      "@id": "chargedesk:billingInterval",
+      "@type": "xsd:string"
+    },
+    "interval_count": {
+      "@id": "chargedesk:billingIntervalCount",
+      "@type": "xsd:integer"
+    },
+    "quantity": {
+      "@id": "schema:amount",
+      "@type": "xsd:integer"
+    },
+    "trial_start": {
+      "@id": "chargedesk:trialStart",
+      "@type": "xsd:dateTime"
+    },
+    "trial_end": {
+      "@id": "chargedesk:trialEnd",
+      "@type": "xsd:dateTime"
+    },
+    "billing_cycles_total": {
+      "@id": "chargedesk:billingCyclesTotal",
+      "@type": "xsd:integer"
+    },
+    "billing_cycles_current": {
+      "@id": "chargedesk:billingCyclesCurrent",
+      "@type": "xsd:integer"
+    },
+
+    "product_id": {
+      "@id": "chargedesk:productId",
+      "@type": "xsd:string"
+    },
+    "trial_period_days": {
+      "@id": "chargedesk:trialPeriodDays",
+      "@type": "xsd:integer"
+    },
+    "setup_amount": {
+      "@id": "chargedesk:setupAmount",
+      "@type": "xsd:decimal"
+    },
+    "chargeable": {
+      "@id": "chargedesk:chargeable",
+      "@type": "xsd:boolean"
+    },
+
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "events": {
+      "@id": "chargedesk:webhookEvents",
+      "@container": "@list"
+    },
+    "active": {
+      "@id": "schema:active",
+      "@type": "xsd:boolean"
+    },
+    "created": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+
+    "customer": {
+      "@id": "schema:customer",
+      "@type": "chargedesk:Customer"
+    },
+    "subscription": {
+      "@id": "chargedesk:subscription",
+      "@type": "chargedesk:Subscription"
+    },
+    "product": {
+      "@id": "schema:isRelatedTo",
+      "@type": "chargedesk:Product"
+    },
+
+    "data": {
+      "@id": "chargedesk:items",
+      "@container": "@list"
+    },
+    "total_count": {
+      "@id": "chargedesk:totalCount",
+      "@type": "xsd:integer"
+    },
+    "count": {
+      "@id": "chargedesk:count",
+      "@type": "xsd:integer"
+    },
+    "offset": {
+      "@id": "chargedesk:offset",
+      "@type": "xsd:integer"
+    }
+  }
+}

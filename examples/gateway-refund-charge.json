@@ -1,0 +1,31 @@
+{
+  "title": "Gateway - Refund a Charge",
+  "description": "Example request to refund a charge via the ChargeDesk payment gateway",
+  "request": {
+    "method": "POST",
+    "url": "https://api.chargedesk.com/v1/gateway/charges/ch_live_abc123/refund",
+    "headers": {
+      "Authorization": "Basic YOUR_SECRET_KEY:",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "amount": "49.99",
+      "log_reason": "Customer requested refund - duplicate charge"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ch_live_abc123",
+      "object": "charge",
+      "status": "refunded",
+      "amount": 99.00,
+      "amount_refunded": 49.99,
+      "currency": "USD",
+      "customer": {
+        "id": "cus_abc123"
+      },
+      "occurred": "2026-06-13T00:00:00Z"
+    }
+  }
+}

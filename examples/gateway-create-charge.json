@@ -1,0 +1,38 @@
+{
+  "title": "Gateway - Create a Charge",
+  "description": "Example request to create a live charge via the ChargeDesk payment gateway",
+  "request": {
+    "method": "POST",
+    "url": "https://api.chargedesk.com/v1/gateway/products/charge",
+    "headers": {
+      "Authorization": "Basic YOUR_SECRET_KEY:",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "using": "card",
+      "customer[id]": "cus_abc123",
+      "amount": "99.00",
+      "currency": "USD",
+      "description": "One-time professional services charge"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ch_live_abc123",
+      "object": "charge",
+      "status": "paid",
+      "amount": 99.00,
+      "currency": "USD",
+      "description": "One-time professional services charge",
+      "transaction_id": "txn_gateway_789",
+      "last_4_digits": "4242",
+      "customer": {
+        "id": "cus_abc123",
+        "email": "user@example.com",
+        "name": "Jane Smith"
+      },
+      "occurred": "2026-06-13T00:00:00Z"
+    }
+  }
+}
