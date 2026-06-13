@@ -1,0 +1,28 @@
+name: ChargeDesk FinOps
+description: Financial operations considerations for teams using the ChargeDesk API, including cost drivers, plan selection guidance, and cost-control recommendations.
+url: https://chargedesk.com/pricing
+cost_drivers:
+  - name: Active agents
+    description: Each pricing tier caps the number of support agents who can access ChargeDesk. Exceeding the limit requires an upgrade.
+  - name: Recent customers
+    description: Plans are scoped by the number of customers who have made a payment in the past 30 days. High-volume merchants may need Business or Enterprise.
+  - name: Payment gateway volume
+    description: ChargeDesk itself does not charge per transaction; underlying gateway fees (Stripe, Braintree, PayPal, etc.) apply separately.
+plan_guidance:
+  - tier: Hobby
+    monthly_cost_usd: 29
+    suitable_for: Early-stage teams or solo developers testing the integration; up to 3 agents and 1,000 active customers.
+  - tier: Startup
+    monthly_cost_usd: 99
+    suitable_for: Growing SaaS or e-commerce teams with up to 11 agents and 5,000 active customers.
+  - tier: Business
+    monthly_cost_usd: 249
+    suitable_for: Mid-market companies running busy support operations; up to 30 agents and 30,000 active customers.
+  - tier: Enterprise
+    monthly_cost_usd: custom
+    suitable_for: Large organisations needing 100+ agents or 150,000+ active customers; negotiate custom terms with sales.
+cost_control:
+  - Use the Automatic Plan option to gain a 20% limit bonus without manually upgrading; helps defer tier jumps.
+  - Monitor active-customer counts monthly — customers inactive for more than 30 days do not count against limits.
+  - Take advantage of the 14-day free trial to validate ROI before committing to a paid plan.
+  - No long-term contracts; downgrade or cancel at any time to avoid over-spending.

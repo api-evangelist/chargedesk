@@ -1,0 +1,54 @@
+name: ChargeDesk Plans and Pricing
+description: Pricing tiers for ChargeDesk payment management portal, covering agents, customer limits, and billing features.
+url: https://chargedesk.com/pricing
+plans:
+  - name: Hobby
+    price: 29
+    currency: USD
+    period: month
+    users: 3
+    customers: 1000
+    features:
+      - Integrated billing management for helpdesks
+      - Refund processing
+      - Subscription management
+      - Payment invoicing
+      - Secure card updates
+      - Billing pages for embedding customer history
+      - Receipt generation with tax compliance
+      - Detailed activity reports
+      - Customer support
+  - name: Startup
+    price: 99
+    currency: USD
+    period: month
+    users: 11
+    customers: 5000
+    features:
+      - All Hobby features
+      - Increased agent and customer limits
+  - name: Business
+    price: 249
+    currency: USD
+    period: month
+    users: 30
+    customers: 30000
+    features:
+      - All Startup features
+      - Increased agent and customer limits
+  - name: Enterprise
+    price: custom
+    currency: USD
+    period: month
+    users: 100
+    customers: 150000
+    features:
+      - All Business features
+      - Custom pricing
+      - Contact sales for details
+notes:
+  - No setup or hidden fees
+  - No contracts; cancel anytime
+  - 14-day free trial, no credit card required
+  - Automatic Plan provides 20% bonus on all limits with automatic tier adjustments
+  - Free billing history imports available upon upgrade

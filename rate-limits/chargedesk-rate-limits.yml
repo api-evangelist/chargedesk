@@ -1,0 +1,21 @@
+name: ChargeDesk API Rate Limits
+description: Pagination and rate limiting details for the ChargeDesk REST API (base URL https://api.chargedesk.com/v1).
+url: https://chargedesk.com/api-docs
+pagination:
+  default_count: 20
+  max_count: 500
+  offset_charges_max: 50000
+  offset_subscriptions_max: 10000
+  recommendation: Use timestamp-based filtering for large datasets
+rate_limits:
+  notes: >
+    ChargeDesk API documentation acknowledges rate limiting exists but does not
+    publish specific numeric thresholds. Contact ChargeDesk support for
+    enterprise rate-limit details.
+authentication:
+  method: HTTP Basic Auth
+  description: >
+    Pass your secret API key as the Basic Auth username; leave the password
+    field empty. Each company account has its own secret key and must have
+    API access enabled in settings.
+  example: "curl -u YOUR_SECRET_KEY: https://api.chargedesk.com/v1/charges"
