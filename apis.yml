@@ -9,7 +9,7 @@ description: >
   Scout, and Front, enabling support teams to handle billing operations without
   leaving their customer support workflow.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/chargedesk/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -32,7 +32,7 @@ apis:
       capturing charges, processing refunds, cancelling subscriptions,
       requesting payments, and managing customer data. Base URL is
       https://api.chargedesk.com/v1.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://chargedesk.com/api-docs
     baseURL: https://api.chargedesk.com/v1
     tags:
