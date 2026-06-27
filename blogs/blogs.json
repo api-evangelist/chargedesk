@@ -2,13 +2,13 @@
   "repo": "chargedesk",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/chargedesk",
-      "feed_url": "https://www.linkedin.com/company/chargedesk",
-      "title": "",
+      "source": "https://chargedesk.com/help/general/whats-new",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
+      "method": "agent-scrape"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 7,
+  "fetched": "2026-06-27T12:31:31Z",
+  "agent_pulled": "2026-06-27"
 }
