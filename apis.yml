@@ -48,6 +48,8 @@ apis:
       - type: Authentication
         url: https://chargedesk.com/api-docs
 common:
+  - type: AgenticAccess
+    url: agentic-access/chargedesk-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/chargedesk-vulnerability-disclosure.yml
   - type: DomainSecurity
