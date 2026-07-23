@@ -1,0 +1,320 @@
+openapi: 3.0.3
+info:
+  title: ChargeDesk REST Charges Customers API
+  description: 'RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.
+
+    '
+  version: v1
+  contact:
+    name: ChargeDesk Support
+    url: https://chargedesk.com/api-docs
+  termsOfService: https://chargedesk.com/terms
+servers:
+- url: https://api.chargedesk.com/v1
+  description: Production API
+security:
+- basicAuth: []
+tags:
+- name: Customers
+  description: Manage customer billing records
+paths:
+  /customers:
+    get:
+      operationId: listCustomers
+      summary: List all customers
+      tags:
+      - Customers
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      - name: count
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+          default: 20
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 50000
+          default: 0
+      responses:
+        '200':
+          description: A list of customers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCustomer
+      summary: Create a customer record
+      tags:
+      - Customers
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '200':
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /customers/{customer_id}:
+    get:
+      operationId: getCustomer
+      summary: Retrieve a customer
+      tags:
+      - Customers
+      parameters:
+      - $ref: '#/components/parameters/CustomerId'
+      responses:
+        '200':
+          description: Customer record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      operationId: updateCustomer
+      summary: Update a customer record
+      tags:
+      - Customers
+      parameters:
+      - $ref: '#/components/parameters/CustomerId'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '200':
+          description: Updated customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCustomer
+      summary: Delete a customer record
+      tags:
+      - Customers
+      parameters:
+      - $ref: '#/components/parameters/CustomerId'
+      - name: delete_all
+        in: query
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+        description: 'Deletion mode: 1=full deletion including charges, 0=record only, 2=anonymize charges
+
+          '
+      responses:
+        '200':
+          description: Customer deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /customers/grouped:
+    get:
+      operationId: getGroupedCustomers
+      summary: Get structured billing history for customers
+      tags:
+      - Customers
+      responses:
+        '200':
+          description: Grouped customer billing history
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    CustomerInput:
+      type: object
+      required:
+      - customer_id
+      properties:
+        customer_id:
+          type: string
+        email:
+          type: string
+          format: email
+        country:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+        customer_company:
+          type: string
+        website:
+          type: string
+          format: uri
+        description:
+          type: string
+        delinquent:
+          type: boolean
+        card_on_file:
+          type: boolean
+        tax_number:
+          type: string
+        billing_address:
+          type: object
+        invoice_details:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    CustomerList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        total_count:
+          type: integer
+        count:
+          type: integer
+        offset:
+          type: integer
+    BillingAddress:
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique customer identifier
+        object:
+          type: string
+          example: customer
+        customer_id:
+          type: string
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+        customer_company:
+          type: string
+        website:
+          type: string
+          format: uri
+        description:
+          type: string
+        country:
+          type: string
+        delinquent:
+          type: boolean
+        card_on_file:
+          type: boolean
+        tax_number:
+          type: string
+        billing_address:
+          $ref: '#/components/schemas/BillingAddress'
+        invoice_details:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    CustomerId:
+      name: customer_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique customer identifier
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'Use your ChargeDesk secret key as the username with an empty password. Format: Authorization: YOUR_SECRET_KEY:
+
+        '

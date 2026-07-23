@@ -1,0 +1,155 @@
+openapi: 3.0.3
+info:
+  title: ChargeDesk REST Charges Webhooks API
+  description: 'RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.
+
+    '
+  version: v1
+  contact:
+    name: ChargeDesk Support
+    url: https://chargedesk.com/api-docs
+  termsOfService: https://chargedesk.com/terms
+servers:
+- url: https://api.chargedesk.com/v1
+  description: Production API
+security:
+- basicAuth: []
+tags:
+- name: Webhooks
+  description: Manage webhook configurations
+paths:
+  /webhooks:
+    get:
+      operationId: listWebhooks
+      summary: List all webhooks
+      tags:
+      - Webhooks
+      responses:
+        '200':
+          description: A list of webhooks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Webhook'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createWebhook
+      summary: Create a webhook
+      tags:
+      - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WebhookInput'
+      responses:
+        '200':
+          description: Webhook created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /webhooks/{webhook_id}:
+    delete:
+      operationId: deleteWebhook
+      summary: Delete a webhook
+      tags:
+      - Webhooks
+      parameters:
+      - name: webhook_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Webhook deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          example: webhook
+        url:
+          type: string
+          format: uri
+        events:
+          type: array
+          items:
+            type: string
+        active:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+    WebhookInput:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Endpoint URL to receive webhook notifications
+        events:
+          type: array
+          items:
+            type: string
+          description: List of event types to subscribe to
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'Use your ChargeDesk secret key as the username with an empty password. Format: Authorization: YOUR_SECRET_KEY:
+
+        '

@@ -1,0 +1,284 @@
+openapi: 3.0.3
+info:
+  title: ChargeDesk REST Charges Subscriptions API
+  description: 'RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.
+
+    '
+  version: v1
+  contact:
+    name: ChargeDesk Support
+    url: https://chargedesk.com/api-docs
+  termsOfService: https://chargedesk.com/terms
+servers:
+- url: https://api.chargedesk.com/v1
+  description: Production API
+security:
+- basicAuth: []
+tags:
+- name: Subscriptions
+  description: Manage recurring subscriptions
+paths:
+  /subscriptions:
+    get:
+      operationId: listSubscriptions
+      summary: List all subscriptions
+      tags:
+      - Subscriptions
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - requested
+          - pending
+          - new
+          - trialing
+          - active
+          - past_due
+          - canceled
+          - unpaid
+          - suspended
+          - pending_cancel
+      - name: customer[id]
+        in: query
+        schema:
+          type: string
+      - name: count
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+          default: 20
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 50000
+          default: 0
+      responses:
+        '200':
+          description: A list of subscriptions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createSubscription
+      summary: Create a subscription record
+      tags:
+      - Subscriptions
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubscriptionInput'
+      responses:
+        '200':
+          description: Subscription created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /subscriptions/{subscription_id}:
+    get:
+      operationId: getSubscription
+      summary: Retrieve a subscription
+      tags:
+      - Subscriptions
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Subscription record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      operationId: updateSubscription
+      summary: Update a subscription record
+      tags:
+      - Subscriptions
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubscriptionInput'
+      responses:
+        '200':
+          description: Updated subscription
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    SubscriptionInput:
+      type: object
+      required:
+      - subscription_id
+      properties:
+        subscription_id:
+          type: string
+        customer_id:
+          type: string
+        status:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        interval:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+        interval_count:
+          type: integer
+        quantity:
+          type: integer
+        trial_start:
+          type: string
+          format: date-time
+        trial_end:
+          type: string
+          format: date-time
+        billing_cycles_total:
+          type: integer
+        billing_cycles_current:
+          type: integer
+        items[]:
+          type: array
+          items:
+            type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          example: subscription
+        subscription_id:
+          type: string
+        customer_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - requested
+          - pending
+          - new
+          - trialing
+          - active
+          - past_due
+          - canceled
+          - unpaid
+          - suspended
+          - pending_cancel
+        amount:
+          type: number
+        currency:
+          type: string
+        interval:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+        interval_count:
+          type: integer
+        quantity:
+          type: integer
+        trial_start:
+          type: string
+          format: date-time
+        trial_end:
+          type: string
+          format: date-time
+        billing_cycles_total:
+          type: integer
+        billing_cycles_current:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique subscription identifier
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'Use your ChargeDesk secret key as the username with an empty password. Format: Authorization: YOUR_SECRET_KEY:
+
+        '
