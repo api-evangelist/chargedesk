@@ -9,7 +9,20 @@ description: >
   Scout, and Front, enabling support teams to handle billing operations without
   leaving their customer support workflow.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/chargedesk.png
 url: https://raw.githubusercontent.com/api-evangelist/chargedesk/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -25,28 +38,86 @@ tags:
   - Helpdesk Integration
   - REST API
 apis:
-  - name: ChargeDesk REST API
-    description: >
-      RESTful API for managing charges, customers, subscriptions, products, and
-      webhooks across multiple payment gateways. Supports creating and
-      capturing charges, processing refunds, cancelling subscriptions,
-      requesting payments, and managing customer data. Base URL is
-      https://api.chargedesk.com/v1.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://chargedesk.com/api-docs
-    baseURL: https://api.chargedesk.com/v1
-    tags:
-      - Payments
-      - Charges
-      - Subscriptions
-      - Refunds
-      - Customers
-      - Webhooks
-    properties:
-      - type: Documentation
-        url: https://chargedesk.com/api-docs
-      - type: Authentication
-        url: https://chargedesk.com/api-docs
+- name: ChargeDesk REST API
+  description: >
+    RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple
+    payment gateways. Supports creating and capturing charges, processing refunds, cancelling subscriptions,
+    requesting payments, and managing customer data. Base URL is https://api.chargedesk.com/v1.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://chargedesk.com/api-docs
+  baseURL: https://api.chargedesk.com/v1
+  tags:
+  - Payments
+  - Charges
+  - Subscriptions
+  - Refunds
+  - Customers
+  - Webhooks
+  properties:
+  - type: Documentation
+    url: https://chargedesk.com/api-docs
+  - type: Authentication
+    url: https://chargedesk.com/api-docs
+- aid: chargedesk:chargedesk-charges-api
+  name: ChargeDesk Charges API
+  description: Manage charge records across payment gateways
+  humanURL: https://chargedesk.com/api-docs
+  baseURL: https://api.chargedesk.com/v1
+  tags:
+  - Charges
+  properties:
+  - type: OpenAPI
+    url: openapi/chargedesk-charges-api-openapi.yml
+- aid: chargedesk:chargedesk-customers-api
+  name: ChargeDesk Customers API
+  description: Manage customer billing records
+  humanURL: https://chargedesk.com/api-docs
+  baseURL: https://api.chargedesk.com/v1
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/chargedesk-customers-api-openapi.yml
+- aid: chargedesk:chargedesk-gateway-api
+  name: ChargeDesk Gateway API
+  description: Live payment processing operations
+  humanURL: https://chargedesk.com/api-docs
+  baseURL: https://api.chargedesk.com/v1
+  tags:
+  - Gateway
+  properties:
+  - type: OpenAPI
+    url: openapi/chargedesk-gateway-api-openapi.yml
+- aid: chargedesk:chargedesk-products-api
+  name: ChargeDesk Products API
+  description: Manage products and pricing plans
+  humanURL: https://chargedesk.com/api-docs
+  baseURL: https://api.chargedesk.com/v1
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/chargedesk-products-api-openapi.yml
+- aid: chargedesk:chargedesk-subscriptions-api
+  name: ChargeDesk Subscriptions API
+  description: Manage recurring subscriptions
+  humanURL: https://chargedesk.com/api-docs
+  baseURL: https://api.chargedesk.com/v1
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/chargedesk-subscriptions-api-openapi.yml
+- aid: chargedesk:chargedesk-webhooks-api
+  name: ChargeDesk Webhooks API
+  description: Manage webhook configurations
+  humanURL: https://chargedesk.com/api-docs
+  baseURL: https://api.chargedesk.com/v1
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/chargedesk-webhooks-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/chargedesk-agentic-access.yml
