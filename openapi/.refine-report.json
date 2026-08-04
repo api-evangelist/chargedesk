@@ -1,0 +1,26 @@
+{
+  "provider": "chargedesk",
+  "sources": [
+    "chargedesk-charges-api-openapi.yml",
+    "chargedesk-customers-api-openapi.yml",
+    "chargedesk-gateway-api-openapi.yml",
+    "chargedesk-products-api-openapi.yml",
+    "chargedesk-subscriptions-api-openapi.yml",
+    "chargedesk-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "chargedesk-charges-api-openapi.yml",
+    "chargedesk-customers-api-openapi.yml",
+    "chargedesk-gateway-api-openapi.yml",
+    "chargedesk-products-api-openapi.yml",
+    "chargedesk-subscriptions-api-openapi.yml",
+    "chargedesk-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "chargedesk-subscriptions-api-openapi.yml: dangling $ref: #/components/schemas/SubscriptionList"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
