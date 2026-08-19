@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ChargeDesk REST Charges Customers API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/customers",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all customers"
+        },
+        {
+          "info": {
+            "name": "Create a customer record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/customers",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create a customer record"
+        },
+        {
+          "info": {
+            "name": "Retrieve a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/customers/:customer_id",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique customer identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve a customer"
+        },
+        {
+          "info": {
+            "name": "Update a customer record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/customers/:customer_id",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique customer identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Update a customer record"
+        },
+        {
+          "info": {
+            "name": "Delete a customer record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.chargedesk.com/v1/customers/:customer_id",
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique customer identifier"
+              },
+              {
+                "name": "delete_all",
+                "value": "",
+                "type": "query",
+                "description": "Deletion mode: 1=full deletion including charges, 0=record only, 2=anonymize charges\n"
+              }
+            ]
+          },
+          "docs": "Delete a customer record"
+        },
+        {
+          "info": {
+            "name": "Get structured billing history for customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/customers/grouped"
+          },
+          "docs": "Get structured billing history for customers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

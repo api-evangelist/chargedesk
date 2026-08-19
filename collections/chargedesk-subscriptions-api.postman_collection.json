@@ -1,0 +1,1456 @@
+{
+  "item": [
+    {
+      "id": "df7fa9ae-f5dd-4c3a-8289-dd0ea45183b7",
+      "name": "Subscriptions",
+      "description": {
+        "content": "Manage recurring subscriptions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2607951d-fd42-4a98-a2ec-a5fab66d957d",
+          "name": "List all subscriptions",
+          "request": {
+            "name": "List all subscriptions",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "952bd5ce-0692-42ed-b069-f9f4b2ff43ff",
+              "name": "A list of subscriptions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0e50948-0a47-459f-a43d-a8fd50645496",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9208b2b7-4b53-4f78-a6a5-95986ed17032",
+          "name": "Create a subscription record",
+          "request": {
+            "name": "Create a subscription record",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "subscription_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval_count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quantity",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trial_start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trial_end",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billing_cycles_total",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billing_cycles_current",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "items[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "items[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_2",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1f2e7652-7cdf-4f9a-861a-aa36eee58654",
+              "name": "Subscription created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "subscription_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "customer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quantity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_current",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"subscription\",\n  \"subscription_id\": \"string\",\n  \"customer_id\": \"string\",\n  \"status\": \"new\",\n  \"amount\": 8505.334675094022,\n  \"currency\": \"string\",\n  \"interval\": \"year\",\n  \"interval_count\": 8149,\n  \"quantity\": 5154,\n  \"trial_start\": \"1970-05-10T08:02:42.163Z\",\n  \"trial_end\": \"1974-07-04T11:18:21.392Z\",\n  \"billing_cycles_total\": 3368,\n  \"billing_cycles_current\": 4128,\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22ebec65-1e21-4868-b62a-d3f2a81660ba",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "subscription_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "customer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quantity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_current",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d31e9cc-3a08-4053-a294-66d546d124ef",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "subscription_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "customer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quantity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_current",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bb10296-e389-44e6-aec8-0fcdea96f49a",
+          "name": "Retrieve a subscription",
+          "request": {
+            "name": "Retrieve a subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_id",
+                  "description": "(Required) Unique subscription identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46a6bf4c-7496-4d7e-852f-7f10142a50a2",
+              "name": "Subscription record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscription_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"subscription\",\n  \"subscription_id\": \"string\",\n  \"customer_id\": \"string\",\n  \"status\": \"suspended\",\n  \"amount\": 4870.277799802328,\n  \"currency\": \"string\",\n  \"interval\": \"week\",\n  \"interval_count\": 9411,\n  \"quantity\": 7244,\n  \"trial_start\": \"1992-01-08T11:13:25.878Z\",\n  \"trial_end\": \"1951-02-20T23:49:17.926Z\",\n  \"billing_cycles_total\": 7503,\n  \"billing_cycles_current\": 6017,\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42888c87-7027-4ff7-b132-ada629035dcf",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscription_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e65d336d-34c5-4dbc-bb6c-54e2380c5e6d",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscription_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "151e397d-1368-49ce-b7ed-d479d012027b",
+          "name": "Update a subscription record",
+          "request": {
+            "name": "Update a subscription record",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_id",
+                  "description": "(Required) Unique subscription identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "subscription_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval_count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quantity",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trial_start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trial_end",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billing_cycles_total",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billing_cycles_current",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "items[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "items[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3ca64302-e5d4-42b2-ae12-67efb272375d",
+              "name": "Updated subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscription_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "subscription_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "customer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quantity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_current",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"subscription\",\n  \"subscription_id\": \"string\",\n  \"customer_id\": \"string\",\n  \"status\": \"suspended\",\n  \"amount\": 4870.277799802328,\n  \"currency\": \"string\",\n  \"interval\": \"week\",\n  \"interval_count\": 9411,\n  \"quantity\": 7244,\n  \"trial_start\": \"1992-01-08T11:13:25.878Z\",\n  \"trial_end\": \"1951-02-20T23:49:17.926Z\",\n  \"billing_cycles_total\": 7503,\n  \"billing_cycles_current\": 6017,\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a422a26-eb01-4160-b753-2ae86a8f54b1",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscription_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "subscription_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "customer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quantity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_current",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecbd5c58-c65a-4f7e-9aa1-3149e0bd5b04",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscription_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "subscription_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "customer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quantity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_current",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "items[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chargedesk.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c19a1f3-28c7-4d12-81e6-59543547dbb3",
+    "name": "ChargeDesk REST Charges Subscriptions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.\n\n\nContact Support:\n Name: ChargeDesk Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ChargeDesk REST Charges API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/charges",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query string"
+              },
+              {
+                "name": "customer[id]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customer[email]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customer[name]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customer[username]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_4_digits",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred[max]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred[min]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset"
+              }
+            ]
+          },
+          "docs": "List all charges"
+        },
+        {
+          "info": {
+            "name": "Create a charge record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/charges",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create a charge record"
+        },
+        {
+          "info": {
+            "name": "Preview a charge with tax calculation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/charges/preview",
+            "params": [
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customer[id]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Preview a charge with tax calculation"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/charges/:charge_id",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve a single charge"
+        },
+        {
+          "info": {
+            "name": "Update a charge record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/charges/:charge_id",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Update a charge record"
+        },
+        {
+          "info": {
+            "name": "Delete a charge record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.chargedesk.com/v1/charges/:charge_id",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ]
+          },
+          "docs": "Delete a charge record"
+        },
+        {
+          "info": {
+            "name": "Get line items for a charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/charges/:charge_id/items",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ]
+          },
+          "docs": "Get line items for a charge"
+        },
+        {
+          "info": {
+            "name": "Send email notification for a charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/charges/:charge_id/email",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ]
+          },
+          "docs": "Send email notification for a charge"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

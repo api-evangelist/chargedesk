@@ -1,0 +1,1255 @@
+{
+  "item": [
+    {
+      "id": "3ce0d6f5-eca3-47d4-916d-10b982356078",
+      "name": "Products",
+      "description": {
+        "content": "Manage products and pricing plans",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8604c05-3fe6-4bac-b6c8-7d3beae6ff60",
+          "name": "List all products",
+          "request": {
+            "name": "List all products",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a56d875c-02f4-415f-a07c-315b1ed6ecad",
+              "name": "A list of products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"object\": \"product\",\n      \"product_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://IDwlxBGG.sanDVJ7gsaoy9LVINYchKesxi.JbAx\",\n      \"amount\": 1188.0399222371852,\n      \"currency\": \"string\",\n      \"interval\": \"month\",\n      \"trial_period_days\": 8586,\n      \"billing_cycles_total\": 5801,\n      \"setup_amount\": 2798.1491560873906,\n      \"chargeable\": false\n    },\n    {\n      \"id\": \"string\",\n      \"object\": \"product\",\n      \"product_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://damQBs.sbzMIpNllrQJaegOwEokaVrJjdy-pkV8mvWlIsIlnVvp9RE+s69tvnEX8U.Q,wXBzc.Qnm\",\n      \"amount\": 990.4873978972772,\n      \"currency\": \"string\",\n      \"interval\": \"week\",\n      \"trial_period_days\": 9485,\n      \"billing_cycles_total\": 4621,\n      \"setup_amount\": 1182.333838000673,\n      \"chargeable\": false\n    }\n  ],\n  \"total_count\": 7575\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f11173e6-59af-4abf-928b-eb99cf5e7d78",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20638ffd-a82a-45df-8295-936ca237a9dc",
+          "name": "Create a product",
+          "request": {
+            "name": "Create a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "product_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trial_period_days",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billing_cycles_total",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "setup_amount",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "chargeable",
+                  "value": "<boolean>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "59a3b5ae-9387-4893-ad32-143870443717",
+              "name": "Product created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "product_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_period_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "setup_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "chargeable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"product\",\n  \"product_id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"url\": \"https://mNwRSydMzbupqPAUnMdLTTT.fwuNHO5ZKJDThtQlswyJg7w09+hn\",\n  \"amount\": 2819.1454384885606,\n  \"currency\": \"string\",\n  \"interval\": \"day\",\n  \"trial_period_days\": 5592,\n  \"billing_cycles_total\": 5332,\n  \"setup_amount\": 265.22854408123743,\n  \"chargeable\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3e6b871-cf72-47b5-9e58-bc33d0bb5fda",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "product_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_period_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "setup_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "chargeable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e97b152-cd2d-4460-a8b2-80af475043c5",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "product_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_period_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "setup_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "chargeable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "074ef1ba-17d4-4e24-a9df-5f863628867b",
+          "name": "Retrieve a product",
+          "request": {
+            "name": "Retrieve a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) Unique product identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2f5c61a-469f-4676-80e5-e2403cc5dfc1",
+              "name": "Product record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) Unique product identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"product\",\n  \"product_id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"url\": \"https://mNwRSydMzbupqPAUnMdLTTT.fwuNHO5ZKJDThtQlswyJg7w09+hn\",\n  \"amount\": 2819.1454384885606,\n  \"currency\": \"string\",\n  \"interval\": \"day\",\n  \"trial_period_days\": 5592,\n  \"billing_cycles_total\": 5332,\n  \"setup_amount\": 265.22854408123743,\n  \"chargeable\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da040092-0dae-473f-bc64-52ae430f3ef3",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) Unique product identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44974ae5-26de-4fec-ad81-fb6e5e041ad7",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) Unique product identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cd1d452-f320-4fb5-89ca-09f2fc8bffb0",
+          "name": "Update a product",
+          "request": {
+            "name": "Update a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) Unique product identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "product_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trial_period_days",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billing_cycles_total",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "setup_amount",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "chargeable",
+                  "value": "<boolean>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dfeca940-bf2e-4719-b92a-84ac5db2496b",
+              "name": "Updated product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) Unique product identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "product_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_period_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "setup_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "chargeable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"product\",\n  \"product_id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"url\": \"https://mNwRSydMzbupqPAUnMdLTTT.fwuNHO5ZKJDThtQlswyJg7w09+hn\",\n  \"amount\": 2819.1454384885606,\n  \"currency\": \"string\",\n  \"interval\": \"day\",\n  \"trial_period_days\": 5592,\n  \"billing_cycles_total\": 5332,\n  \"setup_amount\": 265.22854408123743,\n  \"chargeable\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3f52e6f-859e-4445-a3e0-b47ce877f10f",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) Unique product identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "product_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_period_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "setup_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "chargeable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20de9935-e7f9-46f5-b78c-a1e62b69bc91",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) Unique product identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "product_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trial_period_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billing_cycles_total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "setup_amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "chargeable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chargedesk.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "93141a7e-3dce-45e0-bb7a-482a7a3a5851",
+    "name": "ChargeDesk REST Charges Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.\n\n\nContact Support:\n Name: ChargeDesk Support",
+      "type": "text/plain"
+    }
+  }
+}

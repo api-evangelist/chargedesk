@@ -1,0 +1,2302 @@
+{
+  "item": [
+    {
+      "id": "25fa6265-ff34-44bd-b73f-9720dc025641",
+      "name": "Charges",
+      "description": {
+        "content": "Manage charge records across payment gateways",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d1df6d4-3dcf-4797-b37d-5716d2f3a1fe",
+          "name": "List all charges",
+          "request": {
+            "name": "List all charges",
+            "description": {},
+            "url": {
+              "path": [
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Search query string"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[email]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[name]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[username]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_4_digits",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "transaction_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurred[max]",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurred[min]",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "20",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72e3f041-4f24-4d00-acbe-cb3977103f03",
+              "name": "A list of charges",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[email]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[username]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "occurred[max]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "occurred[min]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"object\": \"charge\",\n      \"status\": \"credit\",\n      \"amount\": 1945.152841085943,\n      \"currency\": \"string\",\n      \"amount_refunded\": 7863.461190039519,\n      \"description\": \"string\",\n      \"transaction_id\": \"string\",\n      \"last_4_digits\": \"string\",\n      \"customer\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"name\": \"string\"\n      },\n      \"product\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subscription\": {\n        \"id\": \"string\"\n      },\n      \"lines\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"amount\": 5403.312123314951,\n          \"quantity\": 2367,\n          \"currency\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"amount\": 1150.703595794743,\n          \"quantity\": 5617,\n          \"currency\": \"string\"\n        }\n      ],\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"occurred\": \"1947-12-21T01:31:20.045Z\",\n      \"pay_link\": \"https://PdAkxlzVWFgfoUHJqM.ncdQtvJfYxU29UjivQ+UF\"\n    },\n    {\n      \"id\": \"string\",\n      \"object\": \"charge\",\n      \"status\": \"pending\",\n      \"amount\": 6295.852088053475,\n      \"currency\": \"string\",\n      \"amount_refunded\": 4334.957396103309,\n      \"description\": \"string\",\n      \"transaction_id\": \"string\",\n      \"last_4_digits\": \"string\",\n      \"customer\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"name\": \"string\"\n      },\n      \"product\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subscription\": {\n        \"id\": \"string\"\n      },\n      \"lines\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"amount\": 416.633542138235,\n          \"quantity\": 9729,\n          \"currency\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"amount\": 8181.802047339351,\n          \"quantity\": 1828,\n          \"currency\": \"string\"\n        }\n      ],\n      \"metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"occurred\": \"1974-05-06T11:07:38.500Z\",\n      \"pay_link\": \"https://wwoAqWYzWKXHVDYrcKAYjBMpamb.gfwvYuOEiLJ3DtzO8zS61N-9hQeBo5NU+Y7TqTluncZBlHwg\"\n    }\n  ],\n  \"total_count\": 370,\n  \"count\": 3156,\n  \"offset\": 945\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9724cd08-dc81-47ea-8018-fc011fc7eac5",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[email]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[username]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "occurred[max]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "occurred[min]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff96c7df-dbae-4955-aaa7-d36a073360e5",
+          "name": "Create a charge record",
+          "request": {
+            "name": "Create a charge record",
+            "description": {},
+            "url": {
+              "path": [
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[id]",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount_refunded",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_4_digits",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "transaction_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "product[id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "subscription[id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duplicate",
+                  "value": "<string>",
+                  "description": "Set to 'update' to update existing record if ID already exists"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "91710dd0-f8dc-4ac4-91f9-3d34c2bdd547",
+              "name": "Charge created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount_refunded",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "subscription[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to 'update' to update existing record if ID already exists",
+                        "type": "text/plain"
+                      },
+                      "key": "duplicate",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"charge\",\n  \"status\": \"unpaid\",\n  \"amount\": 6218.54616754143,\n  \"currency\": \"string\",\n  \"amount_refunded\": 9767.987451754732,\n  \"description\": \"string\",\n  \"transaction_id\": \"string\",\n  \"last_4_digits\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"name\": \"string\"\n  },\n  \"product\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"subscription\": {\n    \"id\": \"string\"\n  },\n  \"lines\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 2663.9458953920534,\n      \"quantity\": 4653,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 9752.036012806533,\n      \"quantity\": 4539,\n      \"currency\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"occurred\": \"1971-08-07T17:10:21.954Z\",\n  \"pay_link\": \"https://EdVcmBuw.jrwbcBwrjNsmFTCA0zrDPznhzMldGMXYfatz9OP4L1nx6l5EJc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b41afa32-da3d-4d1f-99e3-c646bda85910",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount_refunded",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "subscription[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to 'update' to update existing record if ID already exists",
+                        "type": "text/plain"
+                      },
+                      "key": "duplicate",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26c75030-bf1d-425a-ab4e-1d7e31cd2286",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount_refunded",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "subscription[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to 'update' to update existing record if ID already exists",
+                        "type": "text/plain"
+                      },
+                      "key": "duplicate",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98f83102-f1e8-4820-aa5f-1042cc453827",
+          "name": "Preview a charge with tax calculation",
+          "request": {
+            "name": "Preview a charge with tax calculation",
+            "description": {},
+            "url": {
+              "path": [
+                "charges",
+                "preview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[id]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4714b4cf-030d-4271-bc88-1bd26e3c7a55",
+              "name": "Charge preview with tax",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"charge\",\n  \"status\": \"unpaid\",\n  \"amount\": 6218.54616754143,\n  \"currency\": \"string\",\n  \"amount_refunded\": 9767.987451754732,\n  \"description\": \"string\",\n  \"transaction_id\": \"string\",\n  \"last_4_digits\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"name\": \"string\"\n  },\n  \"product\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"subscription\": {\n    \"id\": \"string\"\n  },\n  \"lines\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 2663.9458953920534,\n      \"quantity\": 4653,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 9752.036012806533,\n      \"quantity\": 4539,\n      \"currency\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"occurred\": \"1971-08-07T17:10:21.954Z\",\n  \"pay_link\": \"https://EdVcmBuw.jrwbcBwrjNsmFTCA0zrDPznhzMldGMXYfatz9OP4L1nx6l5EJc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2755f3cd-bd4b-488b-94a2-ea195e9691af",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c559b15-b320-4b31-9037-65fe590b06f1",
+          "name": "Retrieve a single charge",
+          "request": {
+            "name": "Retrieve a single charge",
+            "description": {},
+            "url": {
+              "path": [
+                "charges",
+                ":charge_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b205121-8903-4089-bc4b-3de7284b0d27",
+              "name": "Charge record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"charge\",\n  \"status\": \"unpaid\",\n  \"amount\": 6218.54616754143,\n  \"currency\": \"string\",\n  \"amount_refunded\": 9767.987451754732,\n  \"description\": \"string\",\n  \"transaction_id\": \"string\",\n  \"last_4_digits\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"name\": \"string\"\n  },\n  \"product\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"subscription\": {\n    \"id\": \"string\"\n  },\n  \"lines\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 2663.9458953920534,\n      \"quantity\": 4653,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 9752.036012806533,\n      \"quantity\": 4539,\n      \"currency\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"occurred\": \"1971-08-07T17:10:21.954Z\",\n  \"pay_link\": \"https://EdVcmBuw.jrwbcBwrjNsmFTCA0zrDPznhzMldGMXYfatz9OP4L1nx6l5EJc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "186fa188-72ae-4772-9fd9-dc849f249419",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a51c2bf4-bcd9-4546-9427-5eb613760e45",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4a03e11-2382-4288-a1bb-650657958e63",
+          "name": "Update a charge record",
+          "request": {
+            "name": "Update a charge record",
+            "description": {},
+            "url": {
+              "path": [
+                "charges",
+                ":charge_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[id]",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount_refunded",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_4_digits",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "transaction_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "product[id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "subscription[id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duplicate",
+                  "value": "<string>",
+                  "description": "Set to 'update' to update existing record if ID already exists"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "91c00ed7-82c4-4e75-8242-3fa730d4f96f",
+              "name": "Updated charge",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount_refunded",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "subscription[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to 'update' to update existing record if ID already exists",
+                        "type": "text/plain"
+                      },
+                      "key": "duplicate",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"charge\",\n  \"status\": \"unpaid\",\n  \"amount\": 6218.54616754143,\n  \"currency\": \"string\",\n  \"amount_refunded\": 9767.987451754732,\n  \"description\": \"string\",\n  \"transaction_id\": \"string\",\n  \"last_4_digits\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"name\": \"string\"\n  },\n  \"product\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"subscription\": {\n    \"id\": \"string\"\n  },\n  \"lines\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 2663.9458953920534,\n      \"quantity\": 4653,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 9752.036012806533,\n      \"quantity\": 4539,\n      \"currency\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"occurred\": \"1971-08-07T17:10:21.954Z\",\n  \"pay_link\": \"https://EdVcmBuw.jrwbcBwrjNsmFTCA0zrDPznhzMldGMXYfatz9OP4L1nx6l5EJc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97524377-908e-4aa0-a958-fd3eb22e5ba2",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount_refunded",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "subscription[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to 'update' to update existing record if ID already exists",
+                        "type": "text/plain"
+                      },
+                      "key": "duplicate",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f1689c3-d3fb-40cb-ac84-5a66e0d81d39",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount_refunded",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_4_digits",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "subscription[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to 'update' to update existing record if ID already exists",
+                        "type": "text/plain"
+                      },
+                      "key": "duplicate",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0400958e-abcc-4ec7-b765-e8e1c43bba49",
+          "name": "Delete a charge record",
+          "request": {
+            "name": "Delete a charge record",
+            "description": {},
+            "url": {
+              "path": [
+                "charges",
+                ":charge_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c6c5ad7-44f1-46bc-a546-0b295001f77c",
+              "name": "Charge deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02972480-340c-4ca1-aad9-4351e6161329",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "128b8ad4-1cfa-4c63-b051-7dc11f7a1db2",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fbc171f-16f8-4c46-a473-6f64a45f43dd",
+          "name": "Get line items for a charge",
+          "request": {
+            "name": "Get line items for a charge",
+            "description": {},
+            "url": {
+              "path": [
+                "charges",
+                ":charge_id",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4356c849-6e03-4d7c-a22a-c1b7f521bbc4",
+              "name": "Charge line items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 7093.740856730782,\n      \"quantity\": 2303,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 7988.610463764564,\n      \"quantity\": 5314,\n      \"currency\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6febb8f2-0259-457a-840b-c5fa422fad2e",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88f3db9c-db48-4b01-aa4f-96e451fb3d13",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbb768a5-4fe9-4d33-9216-cb387eb6073b",
+          "name": "Send email notification for a charge",
+          "request": {
+            "name": "Send email notification for a charge",
+            "description": {},
+            "url": {
+              "path": [
+                "charges",
+                ":charge_id",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa9e88be-8b19-485a-8db4-abc8447e26b5",
+              "name": "Email sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15f248a8-9a08-43c4-81b2-3c7c63e4e4a5",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89f10445-e2ac-4105-9d74-1042e2f0814e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":charge_id",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chargedesk.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "39f85abd-ebe6-4900-b4aa-9a6ee1928d72",
+    "name": "ChargeDesk REST Charges API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.\n\n\nContact Support:\n Name: ChargeDesk Support",
+      "type": "text/plain"
+    }
+  }
+}

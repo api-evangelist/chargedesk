@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ChargeDesk REST Charges Subscriptions API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/subscriptions",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customer[id]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create a subscription record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/subscriptions",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create a subscription record"
+        },
+        {
+          "info": {
+            "name": "Retrieve a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chargedesk.com/v1/subscriptions/:subscription_id",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique subscription identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve a subscription"
+        },
+        {
+          "info": {
+            "name": "Update a subscription record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/subscriptions/:subscription_id",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique subscription identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Update a subscription record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2053 @@
+{
+  "item": [
+    {
+      "id": "43e30a31-83ba-4570-ab89-42b9728306cd",
+      "name": "Gateway",
+      "description": {
+        "content": "Live payment processing operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "82bc33f0-d165-4020-a013-3024c6f93439",
+          "name": "Create a live charge, subscription, or payment request via gateway",
+          "request": {
+            "name": "Create a live charge, subscription, or payment request via gateway",
+            "description": {},
+            "url": {
+              "path": [
+                "gateway",
+                "products",
+                "charge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "using",
+                  "value": "<string>",
+                  "description": "Payment method. Set to 'card' for charge, 'invoice' for payment request."
+                },
+                {
+                  "disabled": false,
+                  "key": "customer[id]",
+                  "value": "<string>",
+                  "description": "Customer identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "Charge amount"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "3-letter ISO currency code"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "product[interval]",
+                  "value": "<string>",
+                  "description": "Billing interval for subscriptions (day, week, month, year)"
+                },
+                {
+                  "disabled": false,
+                  "key": "product[interval_count]",
+                  "value": "<integer>",
+                  "description": "Number of intervals between billings"
+                },
+                {
+                  "disabled": false,
+                  "key": "product[trial_period_days]",
+                  "value": "<integer>",
+                  "description": "Number of trial days"
+                },
+                {
+                  "disabled": false,
+                  "key": "product[billing_cycles_total]",
+                  "value": "<integer>",
+                  "description": "Total number of billing cycles"
+                },
+                {
+                  "disabled": false,
+                  "key": "contact",
+                  "value": "<string>",
+                  "description": "Contact email for payment request"
+                },
+                {
+                  "disabled": false,
+                  "key": "link_only",
+                  "value": "<boolean>",
+                  "description": "Return only pay link, do not send email"
+                },
+                {
+                  "disabled": false,
+                  "key": "lines[]",
+                  "value": "<string>",
+                  "description": "Line items for payment request"
+                },
+                {
+                  "disabled": false,
+                  "key": "lines[]",
+                  "value": "<string>",
+                  "description": "Line items for payment request"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata[key]",
+                  "value": "<string>",
+                  "description": "Arbitrary metadata key-value pairs"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1ec96aed-aa35-455a-87fa-81bc3a81cc15",
+              "name": "Gateway charge/subscription created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "products",
+                    "charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Payment method. Set to 'card' for charge, 'invoice' for payment request.",
+                        "type": "text/plain"
+                      },
+                      "key": "using",
+                      "value": "card"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Charge amount",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "3-letter ISO currency code",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Billing interval for subscriptions (day, week, month, year)",
+                        "type": "text/plain"
+                      },
+                      "key": "product[interval]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of intervals between billings",
+                        "type": "text/plain"
+                      },
+                      "key": "product[interval_count]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of trial days",
+                        "type": "text/plain"
+                      },
+                      "key": "product[trial_period_days]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Total number of billing cycles",
+                        "type": "text/plain"
+                      },
+                      "key": "product[billing_cycles_total]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Contact email for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "contact",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Return only pay link, do not send email",
+                        "type": "text/plain"
+                      },
+                      "key": "link_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Line items for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "lines[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Line items for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "lines[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Arbitrary metadata key-value pairs",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata[key]",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"charge\",\n  \"status\": \"unclaimed\",\n  \"amount\": 764.0117207136898,\n  \"currency\": \"string\",\n  \"amount_refunded\": 2343.927826092337,\n  \"description\": \"string\",\n  \"transaction_id\": \"string\",\n  \"last_4_digits\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"name\": \"string\"\n  },\n  \"product\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"subscription\": {\n    \"id\": \"string\"\n  },\n  \"lines\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 3115.2422482631014,\n      \"quantity\": 598,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 8392.338534125629,\n      \"quantity\": 5982,\n      \"currency\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"occurred\": \"1987-01-31T08:32:28.812Z\",\n  \"pay_link\": \"https://nrHiYWsdeMCQVwBYfaRxAvbdo.yxxudi4g8SfPQ123\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "308d0d50-8798-4772-bd5d-1f53fd7d0fca",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "products",
+                    "charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Payment method. Set to 'card' for charge, 'invoice' for payment request.",
+                        "type": "text/plain"
+                      },
+                      "key": "using",
+                      "value": "card"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Charge amount",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "3-letter ISO currency code",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Billing interval for subscriptions (day, week, month, year)",
+                        "type": "text/plain"
+                      },
+                      "key": "product[interval]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of intervals between billings",
+                        "type": "text/plain"
+                      },
+                      "key": "product[interval_count]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of trial days",
+                        "type": "text/plain"
+                      },
+                      "key": "product[trial_period_days]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Total number of billing cycles",
+                        "type": "text/plain"
+                      },
+                      "key": "product[billing_cycles_total]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Contact email for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "contact",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Return only pay link, do not send email",
+                        "type": "text/plain"
+                      },
+                      "key": "link_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Line items for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "lines[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Line items for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "lines[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Arbitrary metadata key-value pairs",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata[key]",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bebe72a2-b6a2-4b3b-99c3-f119d3598ef8",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "products",
+                    "charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Payment method. Set to 'card' for charge, 'invoice' for payment request.",
+                        "type": "text/plain"
+                      },
+                      "key": "using",
+                      "value": "card"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "customer[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Charge amount",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "3-letter ISO currency code",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Billing interval for subscriptions (day, week, month, year)",
+                        "type": "text/plain"
+                      },
+                      "key": "product[interval]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of intervals between billings",
+                        "type": "text/plain"
+                      },
+                      "key": "product[interval_count]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of trial days",
+                        "type": "text/plain"
+                      },
+                      "key": "product[trial_period_days]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Total number of billing cycles",
+                        "type": "text/plain"
+                      },
+                      "key": "product[billing_cycles_total]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Contact email for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "contact",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Return only pay link, do not send email",
+                        "type": "text/plain"
+                      },
+                      "key": "link_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Line items for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "lines[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Line items for payment request",
+                        "type": "text/plain"
+                      },
+                      "key": "lines[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Arbitrary metadata key-value pairs",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata[key]",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1d8e102-6bd4-4f0a-8746-b3c5747a108e",
+          "name": "Refund a charge via gateway",
+          "request": {
+            "name": "Refund a charge via gateway",
+            "description": {},
+            "url": {
+              "path": [
+                "gateway",
+                "charges",
+                ":charge_id",
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "Amount to refund (omit for full refund)"
+                },
+                {
+                  "disabled": false,
+                  "key": "log_reason",
+                  "value": "<string>",
+                  "description": "Reason for the refund"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ea7acaf2-bfee-46db-85d6-5195e682042b",
+              "name": "Charge refunded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount to refund (omit for full refund)",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Reason for the refund",
+                        "type": "text/plain"
+                      },
+                      "key": "log_reason",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"charge\",\n  \"status\": \"authorized\",\n  \"amount\": 1830.3409879921396,\n  \"currency\": \"string\",\n  \"amount_refunded\": 6840.477895845693,\n  \"description\": \"string\",\n  \"transaction_id\": \"string\",\n  \"last_4_digits\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"name\": \"string\"\n  },\n  \"product\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"subscription\": {\n    \"id\": \"string\"\n  },\n  \"lines\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 460.74151248620575,\n      \"quantity\": 86,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 9918.674416118713,\n      \"quantity\": 6746,\n      \"currency\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"occurred\": \"1975-06-22T17:49:55.377Z\",\n  \"pay_link\": \"http://B.lwCl0NgVlaZV4mun+gyQVXxa\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7ae426a-b56b-4c8a-b7e3-fc7d5d4d1719",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount to refund (omit for full refund)",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Reason for the refund",
+                        "type": "text/plain"
+                      },
+                      "key": "log_reason",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb722907-7850-4f9f-af99-1886be333af0",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount to refund (omit for full refund)",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Reason for the refund",
+                        "type": "text/plain"
+                      },
+                      "key": "log_reason",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47b81453-2203-4e45-b115-c9619b7d80ca",
+          "name": "Capture an authorized charge via gateway",
+          "request": {
+            "name": "Capture an authorized charge via gateway",
+            "description": {},
+            "url": {
+              "path": [
+                "gateway",
+                "charges",
+                ":charge_id",
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "Amount to capture (0 to void)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d340cc98-8984-4e55-b9c9-1f1ef2950c39",
+              "name": "Charge captured",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount to capture (0 to void)",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"charge\",\n  \"status\": \"authorized\",\n  \"amount\": 1830.3409879921396,\n  \"currency\": \"string\",\n  \"amount_refunded\": 6840.477895845693,\n  \"description\": \"string\",\n  \"transaction_id\": \"string\",\n  \"last_4_digits\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"name\": \"string\"\n  },\n  \"product\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"subscription\": {\n    \"id\": \"string\"\n  },\n  \"lines\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 460.74151248620575,\n      \"quantity\": 86,\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"amount\": 9918.674416118713,\n      \"quantity\": 6746,\n      \"currency\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"occurred\": \"1975-06-22T17:49:55.377Z\",\n  \"pay_link\": \"http://B.lwCl0NgVlaZV4mun+gyQVXxa\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "147c9698-c0b4-4976-b633-723204899ad0",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount to capture (0 to void)",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27e901f8-f09c-402a-9758-8324ebf5536d",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount to capture (0 to void)",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<number>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8695bbaf-be36-420d-b4a3-6725b1f1d7d5",
+          "name": "Cancel a payment request (void)",
+          "request": {
+            "name": "Cancel a payment request (void)",
+            "description": {},
+            "url": {
+              "path": [
+                "gateway",
+                "charges",
+                ":charge_id",
+                "void"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "charge_id",
+                  "description": "(Required) Unique charge identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb8d064f-4c1b-4946-b2dd-89af15332d6f",
+              "name": "Payment request cancelled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c649f9b-26c8-448f-b41f-7d4aa5123c51",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c74bfddb-bd54-4afc-9eff-9bff9786f694",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "charges",
+                    ":charge_id",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "charge_id",
+                      "description": "(Required) Unique charge identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe5d649e-5356-426b-a600-ae34517b2328",
+          "name": "Cancel a subscription via gateway",
+          "request": {
+            "name": "Cancel a subscription via gateway",
+            "description": {},
+            "url": {
+              "path": [
+                "gateway",
+                "subscriptions",
+                ":subscription_id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_id",
+                  "description": "(Required) Unique subscription identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "log_reason",
+                  "value": "<string>",
+                  "description": "Reason for cancellation"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f1f10b7e-e5b5-45cd-9e18-0529e1ece625",
+              "name": "Subscription cancelled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "subscriptions",
+                    ":subscription_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Reason for cancellation",
+                        "type": "text/plain"
+                      },
+                      "key": "log_reason",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"subscription\",\n  \"subscription_id\": \"string\",\n  \"customer_id\": \"string\",\n  \"status\": \"pending\",\n  \"amount\": 214.37479345690735,\n  \"currency\": \"string\",\n  \"interval\": \"month\",\n  \"interval_count\": 8602,\n  \"quantity\": 7297,\n  \"trial_start\": \"1955-02-07T11:25:19.664Z\",\n  \"trial_end\": \"2008-05-08T12:48:45.628Z\",\n  \"billing_cycles_total\": 4422,\n  \"billing_cycles_current\": 8924,\n  \"metadata\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "403785ad-fdd2-4919-8cce-6d5d4f6ea903",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "subscriptions",
+                    ":subscription_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Reason for cancellation",
+                        "type": "text/plain"
+                      },
+                      "key": "log_reason",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e2c6a18-d199-4fd9-870c-db9c7593579f",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "subscriptions",
+                    ":subscription_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Reason for cancellation",
+                        "type": "text/plain"
+                      },
+                      "key": "log_reason",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4179a166-0d4c-4007-8000-50adc8dd1041",
+          "name": "Edit subscription plans via gateway",
+          "request": {
+            "name": "Edit subscription plans via gateway",
+            "description": {},
+            "url": {
+              "path": [
+                "gateway",
+                "subscriptions",
+                ":subscription_id",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_id",
+                  "description": "(Required) Unique subscription identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "plans[][id]",
+                  "value": "<string>",
+                  "description": "Plan identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "trial_end",
+                  "value": "<dateTime>",
+                  "description": "When the trial period ends"
+                },
+                {
+                  "disabled": false,
+                  "key": "prorate",
+                  "value": "<boolean>",
+                  "description": "Whether to prorate the subscription change"
+                },
+                {
+                  "disabled": false,
+                  "key": "invoice",
+                  "value": "<boolean>",
+                  "description": "Whether to generate an invoice"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d70356aa-1646-4b78-a67c-8cd29304800b",
+              "name": "Subscription plans updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "subscriptions",
+                    ":subscription_id",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Plan identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "plans[][id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When the trial period ends",
+                        "type": "text/plain"
+                      },
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to prorate the subscription change",
+                        "type": "text/plain"
+                      },
+                      "key": "prorate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to generate an invoice",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"subscription\",\n  \"subscription_id\": \"string\",\n  \"customer_id\": \"string\",\n  \"status\": \"new\",\n  \"amount\": 296.2102612889117,\n  \"currency\": \"string\",\n  \"interval\": \"week\",\n  \"interval_count\": 8959,\n  \"quantity\": 2053,\n  \"trial_start\": \"1952-11-29T15:17:49.122Z\",\n  \"trial_end\": \"1980-06-10T14:41:02.792Z\",\n  \"billing_cycles_total\": 1132,\n  \"billing_cycles_current\": 7126,\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78f1e337-bacd-4f7e-8d77-165254b40cdd",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "subscriptions",
+                    ":subscription_id",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Plan identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "plans[][id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When the trial period ends",
+                        "type": "text/plain"
+                      },
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to prorate the subscription change",
+                        "type": "text/plain"
+                      },
+                      "key": "prorate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to generate an invoice",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9867fbb-fc97-4628-8630-4174f7d17e58",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateway",
+                    "subscriptions",
+                    ":subscription_id",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) Unique subscription identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Plan identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "plans[][id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When the trial period ends",
+                        "type": "text/plain"
+                      },
+                      "key": "trial_end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to prorate the subscription change",
+                        "type": "text/plain"
+                      },
+                      "key": "prorate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to generate an invoice",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chargedesk.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a39401d3-725a-4138-914f-cfafcc3f1f42",
+    "name": "ChargeDesk REST Charges Gateway API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.\n\n\nContact Support:\n Name: ChargeDesk Support",
+      "type": "text/plain"
+    }
+  }
+}

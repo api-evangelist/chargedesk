@@ -1,0 +1,240 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ChargeDesk REST Charges Gateway API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gateway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a live charge, subscription, or payment request via gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/gateway/products/charge",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "using",
+                  "value": ""
+                },
+                {
+                  "name": "customer[id]",
+                  "value": ""
+                },
+                {
+                  "name": "amount",
+                  "value": ""
+                },
+                {
+                  "name": "currency",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                },
+                {
+                  "name": "product[interval]",
+                  "value": ""
+                },
+                {
+                  "name": "product[interval_count]",
+                  "value": ""
+                },
+                {
+                  "name": "product[trial_period_days]",
+                  "value": ""
+                },
+                {
+                  "name": "product[billing_cycles_total]",
+                  "value": ""
+                },
+                {
+                  "name": "contact",
+                  "value": ""
+                },
+                {
+                  "name": "link_only",
+                  "value": ""
+                },
+                {
+                  "name": "lines[]",
+                  "value": ""
+                },
+                {
+                  "name": "metadata[key]",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create a live charge, subscription, or payment request via gateway"
+        },
+        {
+          "info": {
+            "name": "Refund a charge via gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/gateway/charges/:charge_id/refund",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "amount",
+                  "value": ""
+                },
+                {
+                  "name": "log_reason",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Refund a charge via gateway"
+        },
+        {
+          "info": {
+            "name": "Capture an authorized charge via gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/gateway/charges/:charge_id/capture",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "amount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Capture an authorized charge via gateway"
+        },
+        {
+          "info": {
+            "name": "Cancel a payment request (void)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/gateway/charges/:charge_id/void",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique charge identifier"
+              }
+            ]
+          },
+          "docs": "Cancel a payment request (void)"
+        },
+        {
+          "info": {
+            "name": "Cancel a subscription via gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/gateway/subscriptions/:subscription_id/cancel",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique subscription identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "log_reason",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Cancel a subscription via gateway"
+        },
+        {
+          "info": {
+            "name": "Edit subscription plans via gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.chargedesk.com/v1/gateway/subscriptions/:subscription_id/plans",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique subscription identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "plans[][id]",
+                  "value": ""
+                },
+                {
+                  "name": "trial_end",
+                  "value": ""
+                },
+                {
+                  "name": "prorate",
+                  "value": ""
+                },
+                {
+                  "name": "invoice",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Edit subscription plans via gateway"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
