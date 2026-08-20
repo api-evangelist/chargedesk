@@ -30,6 +30,16 @@ specificationVersion: '0.23'
 tags:
   - Payments
   - Billing
+  - Subscription
+  - Charges
+  - Refunds
+  - Customer Management
+  - Payment Gateway
+  - Helpdesk Integration
+  - REST API
+tags_raw:
+  - Payments
+  - Billing
   - Subscriptions
   - Charges
   - Refunds
@@ -47,6 +57,13 @@ apis:
   humanURL: https://chargedesk.com/api-docs
   baseURL: https://api.chargedesk.com/v1
   tags:
+  - Payments
+  - Charges
+  - Subscription
+  - Refunds
+  - Customers
+  - Webhook
+  tags_raw:
   - Payments
   - Charges
   - Subscriptions
@@ -94,6 +111,8 @@ apis:
   humanURL: https://chargedesk.com/api-docs
   baseURL: https://api.chargedesk.com/v1
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -104,6 +123,8 @@ apis:
   humanURL: https://chargedesk.com/api-docs
   baseURL: https://api.chargedesk.com/v1
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
@@ -114,6 +135,8 @@ apis:
   humanURL: https://chargedesk.com/api-docs
   baseURL: https://api.chargedesk.com/v1
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
