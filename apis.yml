@@ -114,6 +114,8 @@ apis:
   humanURL: https://chargedesk.com/api-docs
   baseURL: https://api.chargedesk.com/v1
   tags:
+  - Gateways
+  tags_raw:
   - Gateway
   properties:
   - type: OpenAPI
