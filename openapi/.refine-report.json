@@ -1,12 +1,7 @@
 {
   "provider": "chargedesk",
   "sources": [
-    "chargedesk-charges-api-openapi.yml",
-    "chargedesk-customers-api-openapi.yml",
-    "chargedesk-gateway-api-openapi.yml",
-    "chargedesk-products-api-openapi.yml",
-    "chargedesk-subscriptions-api-openapi.yml",
-    "chargedesk-webhooks-api-openapi.yml"
+    "_original/chargedesk-rest-api-openapi.yml"
   ],
   "outputs": [
     "chargedesk-charges-api-openapi.yml",
@@ -18,9 +13,20 @@
   ],
   "archived": [],
   "errors": [
-    "chargedesk-subscriptions-api-openapi.yml: dangling $ref: #/components/schemas/SubscriptionList"
+    "chargedesk-rest-api-openapi.yml: dangling $ref: #/components/schemas/SubscriptionList"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "chargedesk-rest-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "chargedesk-charges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chargedesk-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chargedesk-gateway-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chargedesk-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chargedesk-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chargedesk-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

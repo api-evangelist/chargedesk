@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: ChargeDesk REST Charges Products API
-  description: 'RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.
-
-    '
+  title: ChargeDesk REST Products API
+  description: RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.
   version: v1
   contact:
     name: ChargeDesk Support
@@ -114,71 +112,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    ProductInput:
-      type: object
-      required:
-      - product_id
-      properties:
-        product_id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        url:
-          type: string
-          format: uri
-        amount:
-          type: number
-        currency:
-          type: string
-        interval:
-          type: string
-          enum:
-          - day
-          - week
-          - month
-          - year
-        trial_period_days:
-          type: integer
-        billing_cycles_total:
-          type: integer
-        setup_amount:
-          type: number
-        chargeable:
-          type: boolean
-    ProductList:
-      type: object
-      properties:
-        object:
-          type: string
-          example: list
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        total_count:
-          type: integer
     Product:
       type: object
       properties:
@@ -227,6 +161,51 @@ components:
               type: string
             code:
               type: string
+    ProductInput:
+      type: object
+      required:
+      - product_id
+      properties:
+        product_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+          format: uri
+        amount:
+          type: number
+        currency:
+          type: string
+        interval:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+        trial_period_days:
+          type: integer
+        billing_cycles_total:
+          type: integer
+        setup_amount:
+          type: number
+        chargeable:
+          type: boolean
+    ProductList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        total_count:
+          type: integer
   parameters:
     ProductId:
       name: product_id
@@ -235,6 +214,25 @@ components:
       schema:
         type: string
       description: Unique product identifier
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     basicAuth:
       type: http

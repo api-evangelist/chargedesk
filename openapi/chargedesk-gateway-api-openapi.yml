@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: ChargeDesk REST Charges Gateway API
-  description: 'RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.
-
-    '
+  title: ChargeDesk REST Gateway API
+  description: RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways including Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ others. Supports creating and capturing charges, processing refunds, cancelling subscriptions, requesting payments, and managing customer data.
   version: v1
   contact:
     name: ChargeDesk Support
@@ -229,108 +227,26 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique charge identifier
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique subscription identifier
   schemas:
-    ProductRef:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    Subscription:
-      type: object
-      properties:
-        id:
-          type: string
-        object:
-          type: string
-          example: subscription
-        subscription_id:
-          type: string
-        customer_id:
-          type: string
-        status:
-          type: string
-          enum:
-          - requested
-          - pending
-          - new
-          - trialing
-          - active
-          - past_due
-          - canceled
-          - unpaid
-          - suspended
-          - pending_cancel
-        amount:
-          type: number
-        currency:
-          type: string
-        interval:
-          type: string
-          enum:
-          - day
-          - week
-          - month
-          - year
-        interval_count:
-          type: integer
-        quantity:
-          type: integer
-        trial_start:
-          type: string
-          format: date-time
-        trial_end:
-          type: string
-          format: date-time
-        billing_cycles_total:
-          type: integer
-        billing_cycles_current:
-          type: integer
-        items:
-          type: array
-          items:
-            type: object
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
     SubscriptionRef:
       type: object
       properties:
         id:
-          type: string
-    ChargeLineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        description:
-          type: string
-        amount:
-          type: number
-        quantity:
-          type: integer
-        currency:
           type: string
     CustomerRef:
       type: object
@@ -341,6 +257,18 @@ components:
           type: string
         name:
           type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
     Charge:
       type: object
       properties:
@@ -410,33 +338,103 @@ components:
           type: string
           format: uri
           description: Payment link (for payment requests)
-    Error:
+    ProductRef:
       type: object
       properties:
-        error:
+        id:
+          type: string
+        name:
+          type: string
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          example: subscription
+        subscription_id:
+          type: string
+        customer_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - requested
+          - pending
+          - new
+          - trialing
+          - active
+          - past_due
+          - canceled
+          - unpaid
+          - suspended
+          - pending_cancel
+        amount:
+          type: number
+        currency:
+          type: string
+        interval:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+        interval_count:
+          type: integer
+        quantity:
+          type: integer
+        trial_start:
+          type: string
+          format: date-time
+        trial_end:
+          type: string
+          format: date-time
+        billing_cycles_total:
+          type: integer
+        billing_cycles_current:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+        metadata:
           type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
-  parameters:
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique charge identifier
-    SubscriptionId:
-      name: subscription_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique subscription identifier
+          additionalProperties:
+            type: string
+    ChargeLineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        currency:
+          type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     basicAuth:
       type: http
