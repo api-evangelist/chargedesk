@@ -157,6 +157,64 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique customer identifier
+        object:
+          type: string
+          example: customer
+        customer_id:
+          type: string
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+        customer_company:
+          type: string
+        website:
+          type: string
+          format: uri
+        description:
+          type: string
+        country:
+          type: string
+        delinquent:
+          type: boolean
+        card_on_file:
+          type: boolean
+        tax_number:
+          type: string
+        billing_address:
+          $ref: '#/components/schemas/BillingAddress'
+        invoice_details:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    BillingAddress:
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
     Error:
       type: object
       properties:
@@ -224,64 +282,6 @@ components:
           type: integer
         offset:
           type: integer
-    Customer:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique customer identifier
-        object:
-          type: string
-          example: customer
-        customer_id:
-          type: string
-        email:
-          type: string
-          format: email
-        name:
-          type: string
-        phone:
-          type: string
-        username:
-          type: string
-        customer_company:
-          type: string
-        website:
-          type: string
-          format: uri
-        description:
-          type: string
-        country:
-          type: string
-        delinquent:
-          type: boolean
-        card_on_file:
-          type: boolean
-        tax_number:
-          type: string
-        billing_address:
-          $ref: '#/components/schemas/BillingAddress'
-        invoice_details:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-    BillingAddress:
-      type: object
-      properties:
-        line1:
-          type: string
-        line2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postal_code:
-          type: string
-        country:
-          type: string
   responses:
     NotFound:
       description: Resource not found
@@ -289,14 +289,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
+    Unauthorized:
+      description: Authentication failed
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication failed
+    BadRequest:
+      description: Invalid request parameters
       content:
         application/json:
           schema:

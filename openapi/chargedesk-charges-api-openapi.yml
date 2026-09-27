@@ -260,26 +260,16 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique charge identifier
   schemas:
     SubscriptionRef:
       type: object
       properties:
         id:
           type: string
-    CustomerRef:
+    ProductRef:
       type: object
       properties:
         id:
-          type: string
-        email:
           type: string
         name:
           type: string
@@ -400,6 +390,15 @@ components:
           type: string
           format: uri
           description: Payment link (for payment requests)
+    CustomerRef:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
     ChargeList:
       type: object
       properties:
@@ -416,13 +415,6 @@ components:
           type: integer
         offset:
           type: integer
-    ProductRef:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
     ChargeLineItem:
       type: object
       properties:
@@ -443,18 +435,26 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Authentication failed
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique charge identifier
   securitySchemes:
     basicAuth:
       type: http

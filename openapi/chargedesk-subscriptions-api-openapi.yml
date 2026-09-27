@@ -131,51 +131,26 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    SubscriptionInput:
-      type: object
-      required:
-      - subscription_id
-      properties:
-        subscription_id:
-          type: string
-        customer_id:
-          type: string
-        status:
-          type: string
-        amount:
-          type: number
-        currency:
-          type: string
-        interval:
-          type: string
-          enum:
-          - day
-          - week
-          - month
-          - year
-        interval_count:
-          type: integer
-        quantity:
-          type: integer
-        trial_start:
-          type: string
-          format: date-time
-        trial_end:
-          type: string
-          format: date-time
-        billing_cycles_total:
-          type: integer
-        billing_cycles_current:
-          type: integer
-        items[]:
-          type: array
-          items:
-            type: string
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
     Error:
       type: object
       properties:
@@ -246,6 +221,50 @@ components:
           type: object
           additionalProperties:
             type: string
+    SubscriptionInput:
+      type: object
+      required:
+      - subscription_id
+      properties:
+        subscription_id:
+          type: string
+        customer_id:
+          type: string
+        status:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        interval:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+        interval_count:
+          type: integer
+        quantity:
+          type: integer
+        trial_start:
+          type: string
+          format: date-time
+        trial_end:
+          type: string
+          format: date-time
+        billing_cycles_total:
+          type: integer
+        billing_cycles_current:
+          type: integer
+        items[]:
+          type: array
+          items:
+            type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
   parameters:
     SubscriptionId:
       name: subscription_id
@@ -254,25 +273,6 @@ components:
       schema:
         type: string
       description: Unique subscription identifier
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     basicAuth:
       type: http

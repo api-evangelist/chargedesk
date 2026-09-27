@@ -149,18 +149,18 @@ components:
           type: number
         chargeable:
           type: boolean
-    Error:
+    ProductList:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        total_count:
+          type: integer
     ProductInput:
       type: object
       required:
@@ -194,35 +194,21 @@ components:
           type: number
         chargeable:
           type: boolean
-    ProductList:
+    Error:
       type: object
       properties:
-        object:
-          type: string
-          example: list
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        total_count:
-          type: integer
-  parameters:
-    ProductId:
-      name: product_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique product identifier
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
   responses:
     NotFound:
       description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
       content:
         application/json:
           schema:
@@ -233,6 +219,20 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    ProductId:
+      name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique product identifier
   securitySchemes:
     basicAuth:
       type: http
