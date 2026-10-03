@@ -131,9 +131,17 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique subscription identifier
   responses:
-    NotFound:
-      description: Resource not found
+    BadRequest:
+      description: Invalid request parameters
       content:
         application/json:
           schema:
@@ -144,8 +152,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
@@ -265,14 +273,6 @@ components:
           type: object
           additionalProperties:
             type: string
-  parameters:
-    SubscriptionId:
-      name: subscription_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique subscription identifier
   securitySchemes:
     basicAuth:
       type: http

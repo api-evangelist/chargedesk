@@ -112,43 +112,26 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Product:
-      type: object
-      properties:
-        id:
-          type: string
-        object:
-          type: string
-          example: product
-        product_id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        url:
-          type: string
-          format: uri
-        amount:
-          type: number
-        currency:
-          type: string
-        interval:
-          type: string
-          enum:
-          - day
-          - week
-          - month
-          - year
-        trial_period_days:
-          type: integer
-        billing_cycles_total:
-          type: integer
-        setup_amount:
-          type: number
-        chargeable:
-          type: boolean
     ProductList:
       type: object
       properties:
@@ -161,11 +144,14 @@ components:
             $ref: '#/components/schemas/Product'
         total_count:
           type: integer
-    ProductInput:
+    Product:
       type: object
-      required:
-      - product_id
       properties:
+        id:
+          type: string
+        object:
+          type: string
+          example: product
         product_id:
           type: string
         name:
@@ -206,25 +192,39 @@ components:
               type: string
             code:
               type: string
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    ProductInput:
+      type: object
+      required:
+      - product_id
+      properties:
+        product_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+          format: uri
+        amount:
+          type: number
+        currency:
+          type: string
+        interval:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+        trial_period_days:
+          type: integer
+        billing_cycles_total:
+          type: integer
+        setup_amount:
+          type: number
+        chargeable:
+          type: boolean
   parameters:
     ProductId:
       name: product_id

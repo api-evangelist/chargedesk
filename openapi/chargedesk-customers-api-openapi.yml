@@ -157,6 +157,34 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    CustomerList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        total_count:
+          type: integer
+        count:
+          type: integer
+        offset:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
     Customer:
       type: object
       properties:
@@ -200,33 +228,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    BillingAddress:
-      type: object
-      properties:
-        line1:
-          type: string
-        line2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postal_code:
-          type: string
-        country:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
     CustomerInput:
       type: object
       required:
@@ -266,25 +267,24 @@ components:
           type: object
           additionalProperties:
             type: string
-    CustomerList:
+    BillingAddress:
       type: object
       properties:
-        object:
+        line1:
           type: string
-          example: list
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Customer'
-        total_count:
-          type: integer
-        count:
-          type: integer
-        offset:
-          type: integer
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
   responses:
-    NotFound:
-      description: Resource not found
+    BadRequest:
+      description: Invalid request parameters
       content:
         application/json:
           schema:
@@ -295,8 +295,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:

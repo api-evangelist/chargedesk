@@ -227,16 +227,102 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique subscription identifier
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique charge identifier
   schemas:
+    Charge:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique charge identifier
+        object:
+          type: string
+          example: charge
+        status:
+          type: string
+          enum:
+          - pending
+          - paid
+          - partially refunded
+          - refunded
+          - failed
+          - authorized
+          - void
+          - invoiced
+          - invoice canceled
+          - unpaid
+          - past due
+          - subscription pending
+          - disputed
+          - trial
+          - credit
+          - uncollectible
+          - open
+          - draft
+          - unclaimed
+        amount:
+          type: number
+          description: Charge amount
+        currency:
+          type: string
+          description: 3-letter ISO currency code
+        amount_refunded:
+          type: number
+          description: Total amount refunded
+        description:
+          type: string
+        transaction_id:
+          type: string
+          description: Gateway transaction ID
+        last_4_digits:
+          type: string
+          description: Last 4 digits of the card used
+        customer:
+          $ref: '#/components/schemas/CustomerRef'
+        product:
+          $ref: '#/components/schemas/ProductRef'
+        subscription:
+          $ref: '#/components/schemas/SubscriptionRef'
+        lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChargeLineItem'
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        occurred:
+          type: string
+          format: date-time
+        pay_link:
+          type: string
+          format: uri
+          description: Payment link (for payment requests)
     SubscriptionRef:
       type: object
       properties:
         id:
           type: string
-    ProductRef:
+    CustomerRef:
       type: object
       properties:
         id:
+          type: string
+        email:
           type: string
         name:
           type: string
@@ -310,84 +396,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    Charge:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique charge identifier
-        object:
-          type: string
-          example: charge
-        status:
-          type: string
-          enum:
-          - pending
-          - paid
-          - partially refunded
-          - refunded
-          - failed
-          - authorized
-          - void
-          - invoiced
-          - invoice canceled
-          - unpaid
-          - past due
-          - subscription pending
-          - disputed
-          - trial
-          - credit
-          - uncollectible
-          - open
-          - draft
-          - unclaimed
-        amount:
-          type: number
-          description: Charge amount
-        currency:
-          type: string
-          description: 3-letter ISO currency code
-        amount_refunded:
-          type: number
-          description: Total amount refunded
-        description:
-          type: string
-        transaction_id:
-          type: string
-          description: Gateway transaction ID
-        last_4_digits:
-          type: string
-          description: Last 4 digits of the card used
-        customer:
-          $ref: '#/components/schemas/CustomerRef'
-        product:
-          $ref: '#/components/schemas/ProductRef'
-        subscription:
-          $ref: '#/components/schemas/SubscriptionRef'
-        lines:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChargeLineItem'
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-        occurred:
-          type: string
-          format: date-time
-        pay_link:
-          type: string
-          format: uri
-          description: Payment link (for payment requests)
-    CustomerRef:
-      type: object
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-        name:
-          type: string
     ChargeLineItem:
       type: object
       properties:
@@ -401,13 +409,14 @@ components:
           type: integer
         currency:
           type: string
+    ProductRef:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
   responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Authentication failed
       content:
@@ -420,21 +429,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique charge identifier
-    SubscriptionId:
-      name: subscription_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique subscription identifier
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     basicAuth:
       type: http

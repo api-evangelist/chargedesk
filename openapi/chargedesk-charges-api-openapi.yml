@@ -261,66 +261,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    SubscriptionRef:
-      type: object
-      properties:
-        id:
-          type: string
-    ProductRef:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
-    ChargeInput:
-      type: object
-      required:
-      - amount
-      - currency
-      - customer[id]
-      properties:
-        amount:
-          type: number
-        currency:
-          type: string
-        status:
-          type: string
-        amount_refunded:
-          type: number
-        last_4_digits:
-          type: string
-        transaction_id:
-          type: string
-        description:
-          type: string
-        customer[id]:
-          type: string
-        product[id]:
-          type: string
-        subscription[id]:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-        duplicate:
-          type: string
-          enum:
-          - update
-          description: Set to 'update' to update existing record if ID already exists
     Charge:
       type: object
       properties:
@@ -399,6 +339,79 @@ components:
           type: string
         name:
           type: string
+    SubscriptionRef:
+      type: object
+      properties:
+        id:
+          type: string
+    ChargeInput:
+      type: object
+      required:
+      - amount
+      - currency
+      - customer[id]
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+        status:
+          type: string
+        amount_refunded:
+          type: number
+        last_4_digits:
+          type: string
+        transaction_id:
+          type: string
+        description:
+          type: string
+        customer[id]:
+          type: string
+        product[id]:
+          type: string
+        subscription[id]:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        duplicate:
+          type: string
+          enum:
+          - update
+          description: Set to 'update' to update existing record if ID already exists
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+    ProductRef:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    ChargeLineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        currency:
+          type: string
     ChargeList:
       type: object
       properties:
@@ -415,22 +428,17 @@ components:
           type: integer
         offset:
           type: integer
-    ChargeLineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        description:
-          type: string
-        amount:
-          type: number
-        quantity:
-          type: integer
-        currency:
-          type: string
+  parameters:
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique charge identifier
   responses:
-    NotFound:
-      description: Resource not found
+    BadRequest:
+      description: Invalid request parameters
       content:
         application/json:
           schema:
@@ -441,20 +449,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique charge identifier
   securitySchemes:
     basicAuth:
       type: http
