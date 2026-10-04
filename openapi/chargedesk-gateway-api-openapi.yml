@@ -227,21 +227,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    SubscriptionId:
-      name: subscription_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique subscription identifier
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique charge identifier
   schemas:
     Charge:
       type: object
@@ -312,32 +297,6 @@ components:
           type: string
           format: uri
           description: Payment link (for payment requests)
-    SubscriptionRef:
-      type: object
-      properties:
-        id:
-          type: string
-    CustomerRef:
-      type: object
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-        name:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
     Subscription:
       type: object
       properties:
@@ -396,6 +355,25 @@ components:
           type: object
           additionalProperties:
             type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+    ProductRef:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
     ChargeLineItem:
       type: object
       properties:
@@ -409,16 +387,23 @@ components:
           type: integer
         currency:
           type: string
-    ProductRef:
+    CustomerRef:
       type: object
       properties:
         id:
           type: string
+        email:
+          type: string
         name:
           type: string
+    SubscriptionRef:
+      type: object
+      properties:
+        id:
+          type: string
   responses:
-    Unauthorized:
-      description: Authentication failed
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
@@ -429,12 +414,27 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Authentication failed
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique charge identifier
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique subscription identifier
   securitySchemes:
     basicAuth:
       type: http

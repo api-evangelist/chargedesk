@@ -185,6 +185,45 @@ components:
               type: string
             code:
               type: string
+    CustomerInput:
+      type: object
+      required:
+      - customer_id
+      properties:
+        customer_id:
+          type: string
+        email:
+          type: string
+          format: email
+        country:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+        customer_company:
+          type: string
+        website:
+          type: string
+          format: uri
+        description:
+          type: string
+        delinquent:
+          type: boolean
+        card_on_file:
+          type: boolean
+        tax_number:
+          type: string
+        billing_address:
+          type: object
+        invoice_details:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
     Customer:
       type: object
       properties:
@@ -228,45 +267,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    CustomerInput:
-      type: object
-      required:
-      - customer_id
-      properties:
-        customer_id:
-          type: string
-        email:
-          type: string
-          format: email
-        country:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        username:
-          type: string
-        customer_company:
-          type: string
-        website:
-          type: string
-          format: uri
-        description:
-          type: string
-        delinquent:
-          type: boolean
-        card_on_file:
-          type: boolean
-        tax_number:
-          type: string
-        billing_address:
-          type: object
-        invoice_details:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
     BillingAddress:
       type: object
       properties:
@@ -283,6 +283,12 @@ components:
         country:
           type: string
   responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     BadRequest:
       description: Invalid request parameters
       content:
@@ -291,12 +297,6 @@ components:
             $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
       content:
         application/json:
           schema:

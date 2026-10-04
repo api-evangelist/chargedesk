@@ -330,6 +330,54 @@ components:
           type: string
           format: uri
           description: Payment link (for payment requests)
+    ChargeList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Charge'
+        total_count:
+          type: integer
+        count:
+          type: integer
+        offset:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+    ProductRef:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    ChargeLineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        currency:
+          type: string
     CustomerRef:
       type: object
       properties:
@@ -338,11 +386,6 @@ components:
         email:
           type: string
         name:
-          type: string
-    SubscriptionRef:
-      type: object
-      properties:
-        id:
           type: string
     ChargeInput:
       type: object
@@ -380,63 +423,18 @@ components:
           enum:
           - update
           description: Set to 'update' to update existing record if ID already exists
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
-    ProductRef:
+    SubscriptionRef:
       type: object
       properties:
         id:
           type: string
-        name:
-          type: string
-    ChargeLineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        description:
-          type: string
-        amount:
-          type: number
-        quantity:
-          type: integer
-        currency:
-          type: string
-    ChargeList:
-      type: object
-      properties:
-        object:
-          type: string
-          example: list
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Charge'
-        total_count:
-          type: integer
-        count:
-          type: integer
-        offset:
-          type: integer
-  parameters:
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique charge identifier
   responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     BadRequest:
       description: Invalid request parameters
       content:
@@ -449,12 +447,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique charge identifier
   securitySchemes:
     basicAuth:
       type: http
