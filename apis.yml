@@ -157,6 +157,9 @@ apis:
   - type: OpenAPI
     url: openapi/chargedesk-webhooks-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/chargedesk-capability-edges.yml
+    name: ChargeDesk Business Capability Map
   - type: AgenticAccess
     url: agentic-access/chargedesk-agentic-access.yml
   - type: VulnerabilityDisclosure
