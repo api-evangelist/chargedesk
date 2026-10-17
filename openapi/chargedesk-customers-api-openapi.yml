@@ -157,6 +157,18 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
     CustomerList:
       type: object
       properties:
@@ -173,18 +185,6 @@ components:
           type: integer
         offset:
           type: integer
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
     CustomerInput:
       type: object
       required:
@@ -224,6 +224,21 @@ components:
           type: object
           additionalProperties:
             type: string
+    BillingAddress:
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
     Customer:
       type: object
       properties:
@@ -267,21 +282,14 @@ components:
           type: object
           additionalProperties:
             type: string
-    BillingAddress:
-      type: object
-      properties:
-        line1:
-          type: string
-        line2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postal_code:
-          type: string
-        country:
-          type: string
+  parameters:
+    CustomerId:
+      name: customer_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique customer identifier
   responses:
     NotFound:
       description: Resource not found
@@ -301,14 +309,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    CustomerId:
-      name: customer_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique customer identifier
   securitySchemes:
     basicAuth:
       type: http

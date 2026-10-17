@@ -261,6 +261,104 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    ProductRef:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+    CustomerRef:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+    ChargeInput:
+      type: object
+      required:
+      - amount
+      - currency
+      - customer[id]
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+        status:
+          type: string
+        amount_refunded:
+          type: number
+        last_4_digits:
+          type: string
+        transaction_id:
+          type: string
+        description:
+          type: string
+        customer[id]:
+          type: string
+        product[id]:
+          type: string
+        subscription[id]:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        duplicate:
+          type: string
+          enum:
+          - update
+          description: Set to 'update' to update existing record if ID already exists
+    SubscriptionRef:
+      type: object
+      properties:
+        id:
+          type: string
+    ChargeLineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        amount:
+          type: number
+        quantity:
+          type: integer
+        currency:
+          type: string
+    ChargeList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Charge'
+        total_count:
+          type: integer
+        count:
+          type: integer
+        offset:
+          type: integer
     Charge:
       type: object
       properties:
@@ -330,104 +428,14 @@ components:
           type: string
           format: uri
           description: Payment link (for payment requests)
-    ChargeList:
-      type: object
-      properties:
-        object:
-          type: string
-          example: list
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Charge'
-        total_count:
-          type: integer
-        count:
-          type: integer
-        offset:
-          type: integer
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
-    ProductRef:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    ChargeLineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        description:
-          type: string
-        amount:
-          type: number
-        quantity:
-          type: integer
-        currency:
-          type: string
-    CustomerRef:
-      type: object
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-        name:
-          type: string
-    ChargeInput:
-      type: object
-      required:
-      - amount
-      - currency
-      - customer[id]
-      properties:
-        amount:
-          type: number
-        currency:
-          type: string
-        status:
-          type: string
-        amount_refunded:
-          type: number
-        last_4_digits:
-          type: string
-        transaction_id:
-          type: string
-        description:
-          type: string
-        customer[id]:
-          type: string
-        product[id]:
-          type: string
-        subscription[id]:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-        duplicate:
-          type: string
-          enum:
-          - update
-          description: Set to 'update' to update existing record if ID already exists
-    SubscriptionRef:
-      type: object
-      properties:
-        id:
-          type: string
+  parameters:
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique charge identifier
   responses:
     NotFound:
       description: Resource not found
@@ -447,14 +455,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique charge identifier
   securitySchemes:
     basicAuth:
       type: http
