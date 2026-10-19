@@ -122,3 +122,54 @@
     builder: Fivetran
   status: not-a-workflow
   arazzo: null
+- slug: chargedesk-zendesk-own
+  label: Zendesk (own)
+  partner: zendesk
+  partner_name: Zendesk (own)
+  category: eComm and Payments
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.zendesk.com/marketplace/apps/support/45471/chargedesk/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: chargedesk-stripe-partner-ecosystem
+  label: Stripe Partner Ecosystem
+  partner: stripe
+  partner_name: Stripe Partner Ecosystem
+  category: billing / subscription partner of Stripe
+  type: register
+  channel: standard-directory
+  evidence: https://stripe.partners/directory/chargedesk
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Stripe Partner Ecosystem directory (stripe.partners, PartnerPage SSR __NUXT_DATA__)
+    standard: Stripe Partner Ecosystem
+    spec_file: null
+    role: stripe-partner
+    registered_name: ChargeDesk
+    register_id: chargedesk
+    partner_tier: null
+    matched_domain: chargedesk.com
+    matched_by: domain
+    identity_source: the directory's own website field for the partner (no lookup)
+    signal_note: listing = participation; Stripe Certified Professional Developers certify PEOPLE at the firm (context,
+      never certified_products); partner_tier, callouts and products are never counted
+    context:
+      callouts:
+      - Support
+      stripe_products:
+      - Billing
+      - Checkout
+      - Connect
+      - Elements
+      - Invoicing
+      - Payments
+      location: Craiglie, Australia
+    detected_by: sweep-billing-subscriptions.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null

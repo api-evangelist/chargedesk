@@ -5,10 +5,12 @@ checked:
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
 - https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/connectors/partner-built-program
+- https://stripe.partners/sitemap.xml
 - https://zapier.com/api/v4/apps/
 - okta/integrations/okta-integration-edges.yml
 - shopify/integrations/shopify-integration-edges.yml
 - stripe/integrations/stripe-integration-edges.yml
+- zendesk/integrations/zendesk-integration-edges.yml
 source:
 - okta/integrations/okta-integration-edges.yml
 edges:
@@ -149,3 +151,57 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/45471/chargedesk/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - ChargeDesk
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: eComm and Payments
+- partner_name: Stripe Partner Ecosystem
+  partner: stripe
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://stripe.partners/directory/chargedesk
+  category: billing / subscription partner of Stripe
+  contract_reference:
+    register: Stripe Partner Ecosystem directory (stripe.partners, PartnerPage SSR __NUXT_DATA__)
+    standard: Stripe Partner Ecosystem
+    spec_file: null
+    role: stripe-partner
+    registered_name: ChargeDesk
+    register_id: chargedesk
+    partner_tier: null
+    matched_domain: chargedesk.com
+    matched_by: domain
+    identity_source: the directory's own website field for the partner (no lookup)
+    signal_note: listing = participation; Stripe Certified Professional Developers certify PEOPLE at the firm (context,
+      never certified_products); partner_tier, callouts and products are never counted
+    context:
+      callouts:
+      - Support
+      stripe_products:
+      - Billing
+      - Checkout
+      - Connect
+      - Elements
+      - Invoicing
+      - Payments
+      location: Craiglie, Australia
+    detected_by: sweep-billing-subscriptions.py
+    detected: '2026-10-19'
+  detected_by: sweep-billing-subscriptions.py
+  first_seen: '2026-10-19'
