@@ -1,5 +1,8 @@
-generated: '2026-10-14'
+generated: '2026-10-20'
 method: searched
+source:
+- okta/integrations/okta-integration-edges.yml
+- https://zapier.com/apps/chargedesk/integrations
 checked:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
@@ -11,8 +14,51 @@ checked:
 - shopify/integrations/shopify-integration-edges.yml
 - stripe/integrations/stripe-integration-edges.yml
 - zendesk/integrations/zendesk-integration-edges.yml
-source:
-- okta/integrations/okta-integration-edges.yml
+- https://composio.dev/toolkits/chargedesk
+- https://monid.ai/tools/chargedesk
+- https://n8n.io/integrations/chargedesk/
+- https://zapier.com/apps/chargedesk/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: chargedesk
+  url: https://zapier.com/apps/chargedesk/integrations
+  external_url: https://chargedesk.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: agent_log_new
+    label: Agent Log Created
+  - key: charge_failed
+    label: Charge Failed
+  - key: charge_new
+    label: Charge Created
+  - key: charge_request_paid
+    label: Request Paid
+  - key: charge_updated
+    label: Charge Updated
+  - key: customer_first_paid
+    label: Customer First Paid
+  - key: customer_new
+    label: Customer Created
+  - key: customer_updated
+    label: Customer Updated
+  - key: subscription_canceled
+    label: Subscription Canceled
+  - key: subscription_new
+    label: Subscription Created
+  - key: subscription_updated
+    label: Subscription Updated
+  actions:
+  - key: cancel_subscription
+    label: Cancel Subscription
+  - key: request_payment
+    label: Request Payment
+  searches:
+  - key: find_charge
+    label: Find Charge
+  - key: find_customer
+    label: Find Customer
 edges:
 - partner_name: Okta (own)
   partner: okta
@@ -95,6 +141,60 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/45471/chargedesk/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - ChargeDesk
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: eComm and Payments
+- partner_name: Stripe Partner Ecosystem
+  partner: stripe
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://stripe.partners/directory/chargedesk
+  category: billing / subscription partner of Stripe
+  contract_reference:
+    register: Stripe Partner Ecosystem directory (stripe.partners, PartnerPage SSR __NUXT_DATA__)
+    standard: Stripe Partner Ecosystem
+    spec_file: null
+    role: stripe-partner
+    registered_name: ChargeDesk
+    register_id: chargedesk
+    partner_tier: null
+    matched_domain: chargedesk.com
+    matched_by: domain
+    identity_source: the directory's own website field for the partner (no lookup)
+    signal_note: listing = participation; Stripe Certified Professional Developers certify PEOPLE at the firm (context,
+      never certified_products); partner_tier, callouts and products are never counted
+    context:
+      callouts:
+      - Support
+      stripe_products:
+      - Billing
+      - Checkout
+      - Connect
+      - Elements
+      - Invoicing
+      - Payments
+      location: Craiglie, Australia
+    detected_by: sweep-billing-subscriptions.py
+    detected: '2026-10-19'
+  detected_by: sweep-billing-subscriptions.py
+  first_seen: '2026-10-19'
 - partner_name: Airbyte
   partner: airbyte
   partner_match: aggregator
@@ -151,57 +251,160 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-- partner_name: Zendesk (own)
-  partner: zendesk
-  partner_match: mirror
-  mirror_match: domain
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
   type: marketplace
-  relationship: platform-app
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/hubspot
   direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.zendesk.com/marketplace/apps/support/45471/chargedesk/
-  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
-  apps:
-  - ChargeDesk
-  listing_count: 1
-  detected: '2026-10-19'
-  detected_by: mirror-platform-listings.py
-  category: eComm and Payments
-- partner_name: Stripe Partner Ecosystem
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Ecwid by Lightspeed
+  partner: ecwid
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/ecwid
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.ecwid.com/
+- partner_name: Stripe (Legacy)
   partner: stripe
-  partner_match: register
-  type: register
-  direction: partner-built
-  channel: standard-directory
-  relationship: standard-participant
-  evidence: https://stripe.partners/directory/chargedesk
-  category: billing / subscription partner of Stripe
-  contract_reference:
-    register: Stripe Partner Ecosystem directory (stripe.partners, PartnerPage SSR __NUXT_DATA__)
-    standard: Stripe Partner Ecosystem
-    spec_file: null
-    role: stripe-partner
-    registered_name: ChargeDesk
-    register_id: chargedesk
-    partner_tier: null
-    matched_domain: chargedesk.com
-    matched_by: domain
-    identity_source: the directory's own website field for the partner (no lookup)
-    signal_note: listing = participation; Stripe Certified Professional Developers certify PEOPLE at the firm (context,
-      never certified_products); partner_tier, callouts and products are never counted
-    context:
-      callouts:
-      - Support
-      stripe_products:
-      - Billing
-      - Checkout
-      - Connect
-      - Elements
-      - Invoicing
-      - Payments
-      location: Craiglie, Australia
-    detected_by: sweep-billing-subscriptions.py
-    detected: '2026-10-19'
-  detected_by: sweep-billing-subscriptions.py
-  first_seen: '2026-10-19'
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/stripe-legacy
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://stripe.com/
+- partner_name: TalentLMS
+  partner: talentlms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/talentlms
+  direction: third-party
+  category: Online Courses
+  partner_url: https://www.talentlms.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: Facebook Custom Audiences
+  partner: facebook
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/facebook-custom-audiences
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://www.facebook.com/business/m/Facebook-lead-ads-info
+- partner_name: Boast
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/chargedesk/integrations/boast
+  direction: third-party
+  category: Marketing
+  partner_url: https://boast.io/
+templates:
+- title: Create Zendesk users for new first payments in ChargeDesk
+  url: https://zapier.com/apps/chargedesk/integrations/zendesk/894338/create-zendesk-users-for-new-first-payments-in-chargedesk
+  apps:
+  - chargedesk
+  - zendesk
+- title: Add new ChargeDesk customers as Intercom users
+  url: https://zapier.com/apps/chargedesk/integrations/intercom/894438/add-new-chargedesk-customers-as-intercom-users
+  apps:
+  - chargedesk
+  - intercom
+- title: Add new agent logs created in ChargeDesk to rows in Google Sheets
+  url: https://zapier.com/apps/chargedesk/integrations/google-sheets/894443/add-new-agent-logs-created-in-chargedesk-to-rows-in-google-sheets
+  apps:
+  - chargedesk
+  - google-sheets
+- title: Add new ChargeDesk charges to QuickBooks Online invoices
+  url: https://zapier.com/apps/chargedesk/integrations/quickbooks/897150/add-new-chargedesk-charges-to-quickbooks-online-invoices
+  apps:
+  - chargedesk
+  - quickbooks
+- title: Create Wave invoices from new ChargeDesk charges
+  url: https://zapier.com/apps/chargedesk/integrations/wave/1274711/create-wave-invoices-from-new-chargedesk-charges
+  apps:
+  - chargedesk
+  - wave
+- title: Create Xero sales invoices for new ChargeDesk charges
+  url: https://zapier.com/apps/chargedesk/integrations/xero/1329039/create-xero-sales-invoices-for-new-chargedesk-charges
+  apps:
+  - chargedesk
+  - xero
+- title: Create contacts in Front for new first-time paid customers in ChargeDesk
+  url: https://zapier.com/apps/chargedesk/integrations/front-app/1388162/create-contacts-in-front-for-new-first-time-paid-customers-in-chargedesk
+  apps:
+  - chargedesk
+  - front-app
+- title: Update and request payments for customers in ChargeDesk
+  url: https://zapier.com/apps/chargedesk/integrations/chargedesk/1602229/update-and-request-payments-for-customers-in-chargedesk
+  apps:
+  - chargedesk
+- title: Notify Slack with channel messages when ChargeDesk charges fail
+  url: https://zapier.com/apps/chargedesk/integrations/slack/1651003/notify-slack-with-channel-messages-when-chargedesk-charges-fail
+  apps:
+  - chargedesk
+  - slack
+- title: Send Slack messages for new ChargeDesk customer payments
+  url: https://zapier.com/apps/chargedesk/integrations/slack/1653508/send-slack-messages-for-new-chargedesk-customer-payments
+  apps:
+  - chargedesk
+  - slack
+- title: Update Zendesk tickets when new paid requests occur in ChargeDesk
+  url: https://zapier.com/apps/chargedesk/integrations/zendesk/1667723/update-zendesk-tickets-when-new-paid-requests-occur-in-chargedesk
+  apps:
+  - chargedesk
+  - zendesk
+- title: Send an email in Microsoft Outlook when new payment requests are made in ChargeDesk
+  url: https://zapier.com/apps/chargedesk/integrations/microsoft-outlook/1673763/send-an-email-in-microsoft-outlook-when-new-payment-requests-are-made-in-chargedesk
+  apps:
+  - chargedesk
+  - microsoft-outlook
+template_total: 14
