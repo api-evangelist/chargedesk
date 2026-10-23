@@ -18,6 +18,7 @@ checked:
 - https://monid.ai/tools/chargedesk
 - https://n8n.io/integrations/chargedesk/
 - https://zapier.com/apps/chargedesk/integrations
+- intercom/integrations/intercom-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -60,62 +61,6 @@ marketplace_apps:
   - key: find_customer
     label: Find Customer
 edges:
-- partner_name: Okta (own)
-  partner: okta
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.okta.com/integrations/chargedesk/
-  mirror_of: okta/integrations/okta-integration-edges.yml
-  apps:
-  - ChargeDesk
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Single Sign-On
-  badges:
-  - OKTA_VERIFIED
-  features:
-  - OIDC
-- partner_name: Shopify (own)
-  partner: shopify
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://apps.shopify.com/chargedesk
-  mirror_of: shopify/integrations/shopify-integration-edges.yml
-  apps:
-  - ChargeDesk
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  publisher_verified:
-  - Built for Shopify
-- partner_name: Stripe (own)
-  partner: stripe
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.stripe.com/apps/chargedesk
-  mirror_of: stripe/integrations/stripe-integration-edges.yml
-  apps:
-  - ChargeDesk
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: support
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -141,23 +86,6 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
-- partner_name: Zendesk (own)
-  partner: zendesk
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.zendesk.com/marketplace/apps/support/45471/chargedesk/
-  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
-  apps:
-  - ChargeDesk
-  listing_count: 1
-  detected: '2026-10-19'
-  detected_by: mirror-platform-listings.py
-  category: eComm and Payments
 - partner_name: Stripe Partner Ecosystem
   partner: stripe
   partner_match: register
@@ -347,6 +275,96 @@ edges:
   direction: third-party
   category: Marketing
   partner_url: https://boast.io/
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/chargedesk/
+  mirror_of: okta/integrations/okta-integration-edges.yml
+  apps:
+  - ChargeDesk
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Single Sign-On
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - OIDC
+- partner_name: Shopify (own)
+  partner: shopify
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://apps.shopify.com/chargedesk
+  mirror_of: shopify/integrations/shopify-integration-edges.yml
+  apps:
+  - ChargeDesk
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  publisher_verified:
+  - Built for Shopify
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/chargedesk
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - ChargeDesk
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: support
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/45471/chargedesk/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - ChargeDesk
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: eComm and Payments
+- partner_name: Intercom (own)
+  partner: intercom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.intercom.com/app-store/?app_package_code=chargedesk
+  mirror_of: intercom/integrations/intercom-integration-edges.yml
+  apps:
+  - ChargeDesk
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Ecommerce & Payments
 templates:
 - title: Create Zendesk users for new first payments in ChargeDesk
   url: https://zapier.com/apps/chargedesk/integrations/zendesk/894338/create-zendesk-users-for-new-first-payments-in-chargedesk
