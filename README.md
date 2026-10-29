@@ -66,11 +66,166 @@
 
 ChargeDesk is a payment management portal providing a REST API for creating and managing charges, subscriptions, refunds, and customer billing across Stripe, Braintree, PayPal, Authorize.Net, WooCommerce, Shopify, Square, GoCardless, and 14+ other payment gateways. It integrates directly with helpdesk platforms including Zendesk, Freshdesk, Intercom, HubSpot, Help Scout, and Front, enabling support teams to handle billing operations without leaving their customer support workflow.
 
-- **Website:** https://chargedesk.com/
-- **API Documentation:** https://chargedesk.com/api-docs
-- **Base URL:** https://api.chargedesk.com/v1
-- **GitHub:** https://github.com/ChargeDesk
-- **Pricing:** https://chargedesk.com/pricing
-- **Status:** https://status.chargedesk.com/
-- **X:** https://twitter.com/chargedesk
-- **LinkedIn:** https://www.linkedin.com/company/chargedesk
+**Areas:** Payments · Billing · Subscription · Charges · Refunds · Customer Management · Payment Gateway · Helpdesk Integration · REST API
+
+## ChargeDesk on APIs.io
+
+Everything profiled for ChargeDesk is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/chargedesk/](https://apis.io/providers/chargedesk/)** — or go straight to one of the APIs or properties below.
+
+### APIs (7)
+
+- [ChargeDesk REST API](https://apis.io/apis/chargedesk/chargedesk-rest-api/) — RESTful API for managing charges, customers, subscriptions, products, and webhooks across multiple payment gateways. Supports creating and capturing…
+- [ChargeDesk Charges API](https://apis.io/apis/chargedesk/chargedesk-charges-api/) — Manage charge records across payment gateways
+- [ChargeDesk Customers API](https://apis.io/apis/chargedesk/chargedesk-customers-api/) — Manage customer billing records
+- [ChargeDesk Gateway API](https://apis.io/apis/chargedesk/chargedesk-gateway-api/) — Live payment processing operations
+- [ChargeDesk Products API](https://apis.io/apis/chargedesk/chargedesk-products-api/) — Manage products and pricing plans
+- [ChargeDesk Subscriptions API](https://apis.io/apis/chargedesk/chargedesk-subscriptions-api/) — Manage recurring subscriptions
+- [ChargeDesk Webhooks API](https://apis.io/apis/chargedesk/chargedesk-webhooks-api/) — Manage webhook configurations
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Chargedesk Agentic Access](https://apis.io/agentic-access/chargedesk/chargedesk-agentic-access/)
+
+#### JSON Schema (4)
+
+The data models the API reads and writes.
+
+- [Charge](https://apis.io/schemas/chargedesk/charge/)
+- [Customer](https://apis.io/schemas/chargedesk/customer/)
+- [Product](https://apis.io/schemas/chargedesk/product/)
+- [Subscription](https://apis.io/schemas/chargedesk/subscription/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Chargedesk Context](https://apis.io/jsonld/chargedesk/chargedesk-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [ChargeDesk API Vocabulary](https://apis.io/vocabularies/chargedesk/chargedesk-vocabulary/)
+
+#### Examples (6)
+
+Example requests and responses.
+
+- [Create Charge](https://apis.io/examples/chargedesk/create-charge/)
+- [Gateway Create Charge](https://apis.io/examples/chargedesk/gateway-create-charge/)
+- [Gateway Create Subscription](https://apis.io/examples/chargedesk/gateway-create-subscription/)
+- [Gateway Refund Charge](https://apis.io/examples/chargedesk/gateway-refund-charge/)
+- [Gateway Request Payment](https://apis.io/examples/chargedesk/gateway-request-payment/)
+- [List Charges](https://apis.io/examples/chargedesk/list-charges/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [ChargeDesk REST Charges API](https://apis.io/collections/chargedesk/open-chargedesk-charges-api/)
+- [ChargeDesk REST Charges Customers API](https://apis.io/collections/chargedesk/open-chargedesk-customers-api/)
+- [ChargeDesk REST Charges Gateway API](https://apis.io/collections/chargedesk/open-chargedesk-gateway-api/)
+- [ChargeDesk REST Charges Products API](https://apis.io/collections/chargedesk/open-chargedesk-products-api/)
+- [ChargeDesk REST Charges Subscriptions API](https://apis.io/collections/chargedesk/open-chargedesk-subscriptions-api/)
+- [ChargeDesk REST Charges Webhooks API](https://apis.io/collections/chargedesk/open-chargedesk-webhooks-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [ChargeDesk — jsonschema rules](https://apis.io/rules/chargedesk/chargedesk-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Chargedesk Authentication](https://apis.io/security/chargedesk/chargedesk-authentication/)
+- [Chargedesk Domain Security](https://apis.io/security/chargedesk/chargedesk-domain-security/)
+- [Chargedesk Vulnerability Disclosure](https://apis.io/security/chargedesk/chargedesk-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Chargedesk Plans Pricing](https://apis.io/plans/chargedesk/chargedesk-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Chargedesk Rate Limits](https://apis.io/rate-limits/chargedesk/chargedesk-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Chargedesk Finops](https://apis.io/finops/chargedesk/chargedesk-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://chargedesk.com/)
+- [Documentation](https://chargedesk.com/api-docs)
+- [Pricing](https://chargedesk.com/pricing)
+- [Blog](https://chargedesk.com/help/general/whats-new)
+- [Status](https://status.chargedesk.com/)
+
+## API Evangelist rating
+
+**Kin Score 32.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 56.4 |
+| Contract governance | 9.8 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 18.4 |
+
+**Agent readiness 22.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.5** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/chargedesk/](https://apis.io/providers/chargedesk/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ChargeDesk: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/chargedesk/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
